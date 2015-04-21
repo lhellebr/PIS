@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="template.xhtml">
+	<ui:define name="content">
+
+		<h2>Osoby</h2>
+		
+		<h:form>
+			<h:dataTable value="#{osobaBean.osoby}" var="osoba">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="ID"/>
+	                </f:facet>
+					<h:outputText value="#{osoba.id}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Jmeno"/>
+	                </f:facet>
+					<h:outputText value="#{osoba.jmeno}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Prijmeni"/>
+	                </f:facet>
+					<h:outputText value="#{osoba.prijmeni}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Misto narozeni"/>
+	                </f:facet>
+					<h:outputText value="#{osoba.mistoNarozeni}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Bydliste (obec)"/>
+	                </f:facet>
+					<h:outputText value="#{osoba.bydlisteObec}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{osobaBean.actionEdit(osoba)}">
+						<h:outputText value="Upravit"></h:outputText>
+					</h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{osobaBean.actionDelete(osoba)}">
+						<h:outputText value="Smazat"></h:outputText>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			<h:commandLink action="#{osobaBean.actionNew}">
+				<h:outputText value="Vlozit"></h:outputText>
+			</h:commandLink>
+	
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

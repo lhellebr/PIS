@@ -1,0 +1,63 @@
+/* Default style sheet */
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	padding: 1em;
+	background-color: #dd8844;
+	color: white;
+}
+
+#header h1 {
+	font-size: 120%;
+	text-align: center;
+}
+
+#content {
+	padding: 1em;
+}
+
+#content * {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#content p {
+	text-align: justify;
+}
+
+#content p.formButtons {
+	text-align: center;
+}
+
+#content table {
+	border-collapse: collapse;
+}
+
+#content table td, table th {
+	border: 1px solid #dd8844;
+	padding: 0.3em 0.5em;
+	text-align: right;
+}
+
+#footer {
+	padding: 0.5em;
+	background-color: #dd8844;
+	border-top: 1px solid orange;
+	text-align: right;
+	font-size: 75%;
+	color: white;
+}
+
+a {
+	color: #dd8844;
+}
+
+a:hover {
+	color: #ffaa66;
+}

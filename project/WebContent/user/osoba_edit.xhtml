@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="template.xhtml">
+	<ui:define name="content">
+	
+		<h:form>
+			<h:messages layout="table"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="ID"></h:outputLabel>
+				<h:outputText value="#{osobaBean.osoba.id}">
+				</h:outputText>
+				<h:outputLabel rendered="true" value="Jmeno"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"
+					requiredMessage="Jmeno je povinne"
+					validatorMessage="Neplatne jmeno">
+					<f:validateLength minimum="2" maximum="80" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Prijmeni"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true">
+					<f:validateLength minimum="2" maximum="80"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Misto narozeni"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true">
+					<f:validateLength minimum="2" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="bydlisteObec"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.bydlisteObec}">
+				</h:inputText>
+			</h:panelGrid>
+			
+			<h2>Cars</h2>
+			<h:dataTable value="#{osobaBean.osoba.vozidla}"
+			             var="vozidlo">
+				<h:column>
+					<h:outputText value="#{vozidlo.reg}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:outputText value="#{vozidlo.prod}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:outputText value="#{vozidlo.type}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{osobaBean.actionVozidloDel(vozidlo)}">Delete</h:commandLink>
+				</h:column>
+			</h:dataTable>
+
+			<h:commandLink action="#{osobaBean.actionVozidloNew}">Add a car</h:commandLink>
+			
+			<p class="formButtons">
+			<h:commandButton action="#{osobaBean.actionUpdate}" value="Ulozit">
+			</h:commandButton>
+			<h:commandButton action="cancel" value="Zrusit" immediate="true">
+			</h:commandButton>
+			</p>
+			
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>
