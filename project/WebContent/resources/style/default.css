@@ -35,6 +35,9 @@ body {
 	text-align: center;
 }
 
+#content form.userPanel {
+	text-align: right;
+}
 #content table {
 	border-collapse: collapse;
 }

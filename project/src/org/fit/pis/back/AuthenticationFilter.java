@@ -15,6 +15,7 @@ public final class AuthenticationFilter implements Filter
     {
         HttpSession session = ((HttpServletRequest) request).getSession();
         AuthenticationBean auth = (AuthenticationBean) session.getAttribute("authenticationBean");
+        //String path = ((HttpServletRequest) request).getRequestURI().substring(((HttpServletRequest) request).getContextPath().length());
         if (auth != null && auth.isAuthorized())
         {
             chain.doFilter(request, response);

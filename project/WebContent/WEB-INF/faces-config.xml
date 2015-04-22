@@ -79,7 +79,7 @@
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>login</from-outcome>
-			<to-view-id>/admin/admin.xhtml</to-view-id>
+			<to-view-id>/user/osoba_list.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
@@ -87,7 +87,7 @@
 		<display-name>admin/admin.xhtml</display-name>
 		<from-view-id>/admin/admin.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>logout</from-outcome>
+			<from-outcome>login</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>

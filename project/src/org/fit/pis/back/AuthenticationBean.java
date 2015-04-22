@@ -51,7 +51,7 @@ public class AuthenticationBean
     public String actionLogout()
     {
         authorized = false;
-        return "logout";
+        return "/login";
     }
     
     public String actionLogin()
