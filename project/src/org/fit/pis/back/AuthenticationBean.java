@@ -12,10 +12,12 @@ public class AuthenticationBean
     private boolean authorized;
     private String login;
     private String password;
+    private boolean admin;
     
     public AuthenticationBean()
     {
         authorized = false;
+        admin = true;
     }
 
     public boolean isAuthorized()
@@ -67,4 +69,12 @@ public class AuthenticationBean
             return "failed";
         }
     }
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
 }
