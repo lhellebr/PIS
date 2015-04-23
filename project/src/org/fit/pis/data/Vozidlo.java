@@ -66,4 +66,9 @@ public class Vozidlo
     {
         this.owner = owner;
     }
+    
+    public String toString()
+    {
+    	return reg;
+    }
 }

@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.fit.pis.data.Vozidlo;
 import org.fit.pis.data.Osoba;
 
 
@@ -28,10 +29,23 @@ public class OsobaManager
     	em.remove(em.merge(p));
     }
     
+    public Osoba find(String id)
+    {
+    	return em.find(Osoba.class, id);
+    }
+    
     @SuppressWarnings("unchecked")
     public List<Osoba> findAll()
     {
     	return em.createQuery("SELECT o FROM Osoba o").getResultList();
+    }
+    
+    public List<Osoba> findSubstring(String substring)
+    {
+    	String sub = "%" + substring + "%";
+        @SuppressWarnings("unchecked")
+		List<Osoba> ret = em.createQuery("SELECT o FROM Osoba o WHERE CONCAT(o.jmeno,' ',o.prijmeni) LIKE :sub").setParameter("sub", sub).getResultList();
+    	return ret;
     }
 
 }

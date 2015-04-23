@@ -1,0 +1,83 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="template.xhtml">
+ 
+	<ui:define name="content">
+		<h:body>
+		<f:view>
+		
+		<rich:panel>
+		<h:form>
+			<h:outputLabel for="suggest">Najdi vozidlo: </h:outputLabel>
+	        <rich:autocomplete minChars="1"
+	        				   id="suggest"
+	                           value="#{policeBean.find}"
+	                           execute="@form"
+	                           render="out" 
+	                           autocompleteMethod="#{policeBean.autocomplete}"/>
+	                           
+		    <a4j:commandButton render="out" execute="@form" 
+		    				action="#{policeBean.findVozidlo}" value="Vyhledat"/>
+		    
+		    <a4j:outputPanel id="out">
+				<h2>Vozidlo</h2>
+				<h:dataTable value="#{policeBean.vozidlo}"
+				             var="vozidlo">
+					<h:column>
+						<h:outputText value="#{vozidlo.reg}"></h:outputText>
+					</h:column>
+					<h:column>
+						<h:outputText value="#{vozidlo.prod}"></h:outputText>
+					</h:column>
+					<h:column>
+						<h:outputText value="#{vozidlo.type}"></h:outputText>
+					</h:column>
+				</h:dataTable>
+
+				<h2>Majitel</h2>
+		    	<h:dataTable value="#{policeBean.vozidlo.owner}" var="osoba">
+					<h:column>
+						<f:facet name="header">
+		                    <h:outputText value="ID"/>
+		                </f:facet>
+						<h:outputText value="#{osoba.id}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+		                    <h:outputText value="Jmeno"/>
+		                </f:facet>
+						<h:outputText value="#{osoba.jmeno}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+		                    <h:outputText value="Prijmeni"/>
+		                </f:facet>
+						<h:outputText value="#{osoba.prijmeni}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+		                    <h:outputText value="Misto narozeni"/>
+		                </f:facet>
+						<h:outputText value="#{osoba.mistoNarozeni}"></h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+		                    <h:outputText value="Bydliste (obec)"/>
+		                </f:facet>
+						<h:outputText value="#{osoba.bydlisteObec}"></h:outputText>
+					</h:column>
+				</h:dataTable>
+    		</a4j:outputPanel> 
+
+		</h:form>
+		
+		
+		</rich:panel>
+		</f:view>
+		</h:body>
+	</ui:define>
+</ui:composition>

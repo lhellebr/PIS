@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>pis3</display-name>
   <welcome-file-list>
     <welcome-file>faces/user/osoba_list.xhtml</welcome-file>
@@ -25,7 +25,7 @@
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
-    <filter-mapping>
+  <filter-mapping>
     <filter-name>AuthorizationFilter</filter-name>
     <url-pattern>/user/*</url-pattern>
     <url-pattern>/faces/user/*</url-pattern>
@@ -33,4 +33,32 @@
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
+  <!-- <filter-mapping>
+    <filter-name>AuthorizationFilter</filter-name>
+    <url-pattern>/police/*</url-pattern>
+    <url-pattern>/faces/police/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping> -->
+ <!--<filter> 
+     <display-name>RichFaces Filter</display-name> 
+     <filter-name>richfaces</filter-name> 
+     <filter-class>org.ajax4jsf.Filter</filter-class> 
+  </filter>
+  <filter-mapping> 
+     <filter-name>richfaces</filter-name> 
+     <servlet-name>Faces Servlet</servlet-name>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+     <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping> -->
+  <!-- <context-param>
+    <param-name>org.ajax4jsf.VIEW_HANDLERS</param-name>
+    <param-value>com.sun.facelets.FaceletViewHandler</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.DISABLE_FACELET_JSF_VIEWHANDLER</param-name>
+    <param-value>false</param-value>
+  </context-param> -->
 </web-app>
