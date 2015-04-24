@@ -1,11 +1,15 @@
 package org.fit.pis.data;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
@@ -18,6 +22,8 @@ public class Vozidlo
 	private String type;
 	@ManyToOne(fetch=EAGER)
     private Osoba owner;
+	@OneToMany(cascade = { ALL }, fetch = EAGER, mappedBy = "vozidlo", orphanRemoval = true)
+	private Collection<Kradez> thefts;
 	
     public String getProd()
     {
@@ -67,8 +73,27 @@ public class Vozidlo
         this.owner = owner;
     }
     
-    public String toString()
+        
+    public Collection<Kradez> getThefts() {
+		return thefts;
+	}
+
+	public void setThefts(Collection<Kradez> thefts) {
+		this.thefts = thefts;
+	}
+
+	public String toString()
     {
     	return reg;
     }
+	
+	public boolean getNotStolen()
+	{
+		return (thefts.size() == 0);
+	}
+	
+	public boolean getStolen()
+	{
+		return (thefts.size() > 0);
+	}
 }

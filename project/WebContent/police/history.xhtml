@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="template.xhtml">
+ 
+	<ui:define name="content">
+	
+	<h2>Historie krádeží vozidla <h:outputText value="#{policeBean.vozidlo}"></h:outputText></h2>
+		
+		<h:form>
+			<h:commandLink action="#{policeBean.actionTheft()}">
+				<h:outputText value="Ohlásit krádež"></h:outputText>
+			</h:commandLink>
+			<br/>
+			<h:dataTable value="#{policeBean.vozidlo.thefts}" var="kradez">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum nahlášení"/>
+	                </f:facet>
+					<h:outputText value="#{kradez.datumNahlaseni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum nalezení"/>
+	                </f:facet>
+					<h:outputText value="#{kradez.datumNalezeni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Poznámky"/>
+	                </f:facet>
+					<h:outputText value="#{kradez.poznamky}"></h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{policeBean.actionTheft(kradez)}">
+						<h:outputText value="Upravit"></h:outputText>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			<h:commandLink action="#{policeBean.actionInfo()}">
+				<h:outputText value="Zpět"></h:outputText>
+			</h:commandLink>
+	
+		</h:form>		
+
+	</ui:define>
+</ui:composition>

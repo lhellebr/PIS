@@ -100,5 +100,36 @@
 			<to-view-id>/login.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
+	<navigation-rule>
+		<display-name>police/info.xhtml</display-name>
+		<from-view-id>/police/info.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>history</from-outcome>
+			<to-view-id>/police/history.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>police/history.xhtml</display-name>
+		<from-view-id>/police/history.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>theft</from-outcome>
+			<to-view-id>/police/theft.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>info</from-outcome>
+			<to-view-id>/police/info.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>police/theft.xhtml</display-name>
+		<from-view-id>/police/theft.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>save</from-outcome>
+			<to-view-id>/police/history.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/police/history.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

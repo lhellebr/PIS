@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="template.xhtml">
+ 
+	<ui:define name="content">
+		<h:body>
+		<f:view>
+		
+		<rich:panel>
+		<h:form>
+			<h2>Ohlášení krádeže</h2>
+			<h:messages layout="table"></h:messages>
+			
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Datum nahlášení"></h:outputLabel>
+				<rich:calendar value="#{policeBean.kradez.datumNahlaseni}" id="calendar1" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}">
+                </rich:calendar>
+                <h:outputLabel rendered="true" value="Datum nalezení"></h:outputLabel>
+				<rich:calendar value="#{policeBean.kradez.datumNalezeni}" id="calendar2" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}">
+                </rich:calendar>
+                <h:outputLabel rendered="true" value="Poznámky"></h:outputLabel>
+                <h:inputTextarea cols="32" rows="4" value="#{policeBean.kradez.poznamky}">
+                	<f:validateLength maximum="255"/>
+                </h:inputTextarea>
+                <h:commandButton action="#{policeBean.actionTheftAdd}" value="Uložit">
+				</h:commandButton>
+				<h:commandButton action="#{policeBean.actionBack}" value="Zpět">
+				</h:commandButton>
+			</h:panelGrid>
+			
+		</h:form>
+		</rich:panel>
+		</f:view>
+		</h:body>
+	</ui:define>
+</ui:composition>
