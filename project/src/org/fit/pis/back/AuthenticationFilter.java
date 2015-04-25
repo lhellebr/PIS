@@ -1,9 +1,6 @@
 package org.fit.pis.back;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,7 +9,6 @@ public final class AuthenticationFilter implements Filter
 {
     @SuppressWarnings("unused")
 	private FilterConfig filterConfig = null;
-    private static final Logger log = Logger.getLogger( AuthenticationFilter.class.getName() );
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException 
     {
@@ -26,12 +22,7 @@ public final class AuthenticationFilter implements Filter
         		return;
         	}
         }
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Bad login</title></head><body>");
-        out.println("<h1>Access denied</h1>");
-        out.println("Access denied. <a href=\"../login.xhtml\">Try again</a>.");
-        out.println("</body></html>");
+        ((HttpServletResponse)response).sendRedirect("/project/faces/login.xhtml");
     }
 
     public void destroy() 
