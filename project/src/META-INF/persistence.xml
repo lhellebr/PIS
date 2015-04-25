@@ -4,6 +4,7 @@
 		<jta-data-source>jdbc/mysql</jta-data-source>
 		<class>org.fit.pis.data.Kradez</class>
 		<class>org.fit.pis.data.Osoba</class>
+		<class>org.fit.pis.data.Ucet</class>
 		<class>org.fit.pis.data.Vozidlo</class>
 	</persistence-unit>
 </persistence>
