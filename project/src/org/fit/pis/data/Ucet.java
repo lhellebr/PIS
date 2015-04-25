@@ -5,8 +5,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "ucet")
 public class Ucet {
 	public enum Opravneni{
 		ADMINISTRATOR, UREDNIK, POLICISTA
