@@ -28,8 +28,6 @@ public class RidicskyPrukaz{
 	private Ucet urednik;
 	@OneToMany(cascade = { ALL }, fetch = EAGER)
 	private Collection<Skupina> skupiny;
-	@OneToMany(cascade = { ALL }, fetch = EAGER)
-	private Collection<BodovySystem> bodovySystem;
 	
 	public int getId() {
 		return id;
@@ -72,11 +70,5 @@ public class RidicskyPrukaz{
 	}
 	public void setSkupiny(Collection<Skupina> skupiny) {
 		this.skupiny = skupiny;
-	}
-	public Collection<BodovySystem> getBodovySystem() {
-		return bodovySystem;
-	}
-	public void setBodovySystem(Collection<BodovySystem> bodovySystem) {
-		this.bodovySystem = bodovySystem;
 	}
 }

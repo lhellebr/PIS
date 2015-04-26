@@ -10,7 +10,9 @@ import javax.persistence.OneToMany;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
+
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 
@@ -27,6 +29,8 @@ public class Osoba
     private String bydlisteObec;
     @OneToMany(cascade = { ALL }, fetch = EAGER, mappedBy = "owner", orphanRemoval = true)
 	private Collection<Vozidlo> vozidla;
+	@OneToMany(cascade = { ALL }, fetch = EAGER)
+	private Collection<BodovySystem> bodovySystem;
 
     public Osoba()
     {
@@ -113,5 +117,12 @@ public class Osoba
 	public void setBydlisteObec(String bydlisteObec) {
 		this.bydlisteObec = bydlisteObec;
 	}
-    
+
+	public Collection<BodovySystem> getBodovySystem() {
+		return bodovySystem;
+	}
+
+	public void setBodovySystem(Collection<BodovySystem> bodovySystem) {
+		this.bodovySystem = bodovySystem;
+	}
 }
