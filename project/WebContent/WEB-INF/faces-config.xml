@@ -107,6 +107,10 @@
 			<from-outcome>history</from-outcome>
 			<to-view-id>/police/history.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>points</from-outcome>
+			<to-view-id>/police/points.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<display-name>police/history.xhtml</display-name>
@@ -130,6 +134,30 @@
 		<navigation-case>
 			<from-outcome>back</from-outcome>
 			<to-view-id>/police/history.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>police/points.xhtml</display-name>
+		<from-view-id>/police/points.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>record</from-outcome>
+			<to-view-id>/police/addrecord.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>info</from-outcome>
+			<to-view-id>/police/info.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>police/addrecord.xhtml</display-name>
+		<from-view-id>/police/addrecord.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>save</from-outcome>
+			<to-view-id>/police/points.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/police/points.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

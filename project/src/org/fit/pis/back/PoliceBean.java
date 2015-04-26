@@ -1,5 +1,6 @@
 package org.fit.pis.back;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -7,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.fit.pis.data.*;
+import org.fit.pis.service.BodovySystemManager;
 import org.fit.pis.service.KradezManager;
 import org.fit.pis.service.OsobaManager;
 import org.fit.pis.service.VozidloManager;
@@ -29,6 +31,10 @@ public class PoliceBean
     private KradezManager kradezMgr;
     private Kradez kradez;
     private List<Kradez> history;
+    
+    @EJB
+    private BodovySystemManager pointMgr;
+    private BodovySystem point;
     
     public PoliceBean()
     {
@@ -73,31 +79,33 @@ public class PoliceBean
 		return osoba;
 	}
 
-
 	public void setOsoba(Osoba osoba) {
 		this.osoba = osoba;
 	}
-	
 	
 	public Kradez getKradez() {
 		return kradez;
 	}
 
-
 	public void setKradez(Kradez kradez) {
 		this.kradez = kradez;
 	}
-
 
 	public List<Kradez> getHistory() {
 		return history;
 	}
 
-
 	public void setHistory(List<Kradez> history) {
 		this.history = history;
 	}
+	
+	public BodovySystem getPoint() {
+		return point;
+	}
 
+	public void setPoint(BodovySystem point) {
+		this.point = point;
+	}
 
 	public String findVozidlo()
     {
@@ -110,6 +118,16 @@ public class PoliceBean
     {
         found = false;
         return "ok";
+    }
+    
+    public int getPointSum()
+    {
+    	int sum = 0;
+    	for (BodovySystem point:osoba.getBodovySystem())
+    	{
+    		sum += point.getBody();
+    	}
+    	return (sum > 12) ? 12 : (sum < 0) ? 0 : sum;
     }
     
     //===============================
@@ -158,4 +176,27 @@ public class PoliceBean
 		setKradez(new Kradez());
 		return "back";
 	}
+	
+	public String actionPoints()
+	{
+		return "points";
+	}
+	
+	public String actionAddRecord()
+	{
+		setPoint(new BodovySystem());
+		point.setDatumUdeleni(new Date());
+		return "record";
+	}
+
+	public String actionPointsAdd()
+	{
+		//TODO: point.setPolicista()
+		osoba.getBodovySystem().add(point);
+		pointMgr.save(point);
+		osobaMgr.save(osoba);
+		setPoint(new BodovySystem());
+		return "save";
+	}
+	
 }
