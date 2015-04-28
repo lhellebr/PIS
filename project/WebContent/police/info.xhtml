@@ -9,23 +9,24 @@
  
 	<ui:define name="content">
 		<h:body>
-		<f:view>
-		
-		<rich:panel>
+		<h2>Vyhledání vozidla podle registrační značky</h2>
+
 		<h:form>
-			<h:outputLabel for="suggest">Najdi vozidlo: </h:outputLabel>
-	        <rich:autocomplete minChars="1"
-	        				   id="suggest"
-	                           value="#{policeBean.find}"
-	                           execute="@form"
-	                           render="out" 
-	                           autocompleteMethod="#{policeBean.autocomplete}"/>
-	                           
-		    <a4j:commandButton render="out" execute="@form" 
-		    				action="#{policeBean.findVozidlo}" value="Vyhledat"/>
+			<h:panelGrid columns="2" styleClass="noborder">
+				<rich:autocomplete minChars="1"
+		        				   id="suggest"
+		                           value="#{policeBean.find}"
+		                           execute="@form"
+		                           render="out" 
+		                           autocompleteMethod="#{policeBean.autocomplete}"/>
+		                           
+			    <a4j:commandButton render="out" execute="@form" 
+		    					   action="#{policeBean.findVozidlo}" value="Vyhledat"/>
+			</h:panelGrid>
+	        
 		    
 		    <a4j:outputPanel id="out">
-				<h2>Vozidlo</h2>
+				<h4>Vozidlo</h4>
 				<h:dataTable value="#{policeBean.vozidlo}"
 				             var="vozidlo">
 					<h:column>
@@ -56,7 +57,7 @@
 					</h:column>
 				</h:dataTable>
 
-				<h2>Majitel</h2>
+				<h4>Majitel</h4>
 		    	<h:dataTable value="#{policeBean.vozidlo.owner}" var="osoba">
 					<h:column>
 						<f:facet name="header">
@@ -100,10 +101,6 @@
     		</a4j:outputPanel> 
 
 		</h:form>
-		
-		
-		</rich:panel>
-		</f:view>
 		</h:body>
 	</ui:define>
 </ui:composition>

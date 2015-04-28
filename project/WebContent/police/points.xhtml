@@ -13,8 +13,10 @@
 		<h:outputText value="#{policeBean.osoba.jmeno}" />
 		<h:outputText value=" " />
 		<h:outputText value="#{policeBean.osoba.prijmeni}" />
+		<br/>
+		<h:outputText value="Aktuální počet bodů: " />
+		<h:outputText value="#{policeBean.pointSum}" />
 	</h3>
-	<h3>Aktuální počet bodů: <h:outputText value="#{policeBean.pointSum}"></h:outputText></h3>
 		
 		<h:form>
 			<h:commandLink action="#{policeBean.actionAddRecord()}">

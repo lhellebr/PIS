@@ -39,6 +39,9 @@
 					<h:outputText value="#{kradez.poznamky}"></h:outputText>
 				</h:column>
 				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Akce"/>
+	                </f:facet>
 					<h:commandLink action="#{policeBean.actionTheft(kradez)}">
 						<h:outputText value="Upravit"></h:outputText>
 					</h:commandLink>
