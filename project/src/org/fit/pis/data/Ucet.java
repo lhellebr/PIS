@@ -1,9 +1,8 @@
 package org.fit.pis.data;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,18 +14,11 @@ public class Ucet {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	private int id;
 	private String login;
 	private String password;
+	@Enumerated(EnumType.STRING)
 	private Opravneni opravneni;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getLogin() {
 		return login;
 	}
@@ -45,4 +37,7 @@ public class Ucet {
 	public void setOpravneni(Opravneni opravneni) {
 		this.opravneni = opravneni;
 	}
+    public boolean verifyPassword(String password){
+    	return password.equals(this.password);
+    }
 }
