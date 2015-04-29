@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="title">Nový účet</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:messages layout="table" class="msg"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
+				<h:inputText value="#{ucetBean.ucet.login}" required="true"
+					requiredMessage="Login je povinny"
+					validatorMessage="Neplatny login">
+					<f:validateLength minimum="2" maximum="80" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Opravneni"></h:outputLabel>
+				<h:selectOneMenu value="#{ucetBean.ucet.opravneni}" >
+				    <f:selectItems value="#{ucetBean.enumOpravneni}" var="opravneni" itemValue="#{opravneni}" itemLabel="#{opravneni.label}" />
+				</h:selectOneMenu>
+				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
+				<h:inputText value="#{ucetBean.ucet.password}" required="true">
+					<f:validateLength minimum="2" maximum="80"/>
+				</h:inputText>
+				<h:commandButton action="#{ucetBean.actionInsertNew}" value="Vlozit">
+				</h:commandButton>
+				<h:commandButton action="cancel" value="Zrusit" immediate="true">
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

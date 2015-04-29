@@ -7,11 +7,12 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="template.xhtml">
+	<ui:define name="title">Login</ui:define>
 	<ui:define name="content">
 	
 		<f:loadBundle basename="org.fit.pis.messages" var="msg"/>
 		<h:form>
-			<h:messages layout="table"></h:messages>
+			<h:messages layout="table" class="msg"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="#{msg.name}"></h:outputLabel>
 				<h:inputText value="#{authenticationBean.login}" tabindex="0"></h:inputText>

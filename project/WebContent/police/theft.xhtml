@@ -6,11 +6,12 @@
  xmlns:rich="http://richfaces.org/rich" 
  template="template.xhtml">
  
+ 	<ui:define name="title">Ohlášení krádeže</ui:define>
 	<ui:define name="content">
 		<h:body>
 		<h:form>
 			<h2>Ohlášení krádeže</h2>
-			<h:messages layout="table"></h:messages>
+			<h:messages layout="table" class="msg"></h:messages>
 			
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="Datum nahlášení"></h:outputLabel>

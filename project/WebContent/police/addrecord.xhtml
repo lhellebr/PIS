@@ -5,7 +5,7 @@
  xmlns:a4j="http://richfaces.org/a4j" 
  xmlns:rich="http://richfaces.org/rich" 
  template="template.xhtml">
- 
+	<ui:define name="title">Zaznamenat body</ui:define>
 	<ui:define name="content">
 		<h:body>
 		<f:view>
@@ -13,7 +13,7 @@
 		<rich:panel>
 		<h:form>
 			<h2>Bodový systém - přidat záznam</h2>
-			<h:messages layout="table"></h:messages>
+			<h:messages layout="table" class="msg"></h:messages>
 			
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="Datum udělení"></h:outputLabel>

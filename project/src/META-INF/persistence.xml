@@ -9,5 +9,8 @@
 		<class>org.fit.pis.data.Skupina</class>
 		<class>org.fit.pis.data.Ucet</class>
 		<class>org.fit.pis.data.Vozidlo</class>
+		<properties>
+			<property name="eclipselink.query-results-cache" value="false"/>
+		</properties>
 	</persistence-unit>
 </persistence>

@@ -7,10 +7,11 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
+	<ui:define name="title">Upravit osobu</ui:define>
 	<ui:define name="content">
 	
 		<h:form>
-			<h:messages layout="table"></h:messages>
+			<h:messages layout="table" class="msg"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="ID"></h:outputLabel>
 				<h:outputText value="#{osobaBean.osoba.id}">

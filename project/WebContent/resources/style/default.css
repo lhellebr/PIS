@@ -64,3 +64,5 @@ a {
 a:hover {
 	color: #ffaa66;
 }
+
+#content .msg {color: red;}

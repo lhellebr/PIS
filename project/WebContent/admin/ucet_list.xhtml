@@ -7,6 +7,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
+	<ui:define name="title">Seznam účtů</ui:define>
 	<ui:define name="content">
 	
 		<h:form>
@@ -19,9 +20,9 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-	                    <h:outputText value="Opravneni"/>
+	                    <h:outputText value="Oprávnění"/>
 	                </f:facet>
-					<h:outputText value="#{ucet.opravneni}"></h:outputText>
+					<h:outputText value="#{ucet.opravneni.label}"></h:outputText>
 				</h:column>
 				<h:column>
 					<h:commandLink action="#{ucetBean.actionEdit(ucet)}">
@@ -34,7 +35,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:commandLink action="#{ucetBean.actionNew}">
-				<h:outputText value="Pridat"></h:outputText>
+				<h:outputText value="Přidat"></h:outputText>
 			</h:commandLink>
 	
 		</h:form>

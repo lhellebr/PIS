@@ -7,10 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
-
+	<ui:define name="title">Nové vozidlo</ui:define>
 	<ui:define name="content">
 		<h:form>
-			<h:messages layout="table"></h:messages>
+			<h:messages layout="table" class="msg"></h:messages>
 			<p>Adding a car for
 				<h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"></h:outputText>
 			</p>			
