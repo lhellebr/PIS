@@ -20,11 +20,13 @@ public class OsobaBean
 	private OsobaManager osobaMgr;
     private Osoba osoba;
     private Vozidlo vozidlo;
+    private boolean update;
     
     public OsobaBean()
     {
         osoba = new Osoba();
         vozidlo = new Vozidlo();
+        update = false;
     }
     
     /**
@@ -103,13 +105,17 @@ public class OsobaBean
     public String actionVozidloNew(Vozidlo vozidlo)
     {
     	this.vozidlo = vozidlo;
+    	this.update = true;
     	return "newcar";
     }
     
     public String actionVozidloAdd()
     {
-        vozidlo.setOwner(osoba);
-        osoba.getVozidla().add(vozidlo);
+    	if (!update)
+    	{
+	        vozidlo.setOwner(osoba);
+	        osoba.getVozidla().add(vozidlo);
+    	}
         return "add";
     }
     
