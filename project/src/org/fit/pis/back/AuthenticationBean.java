@@ -32,7 +32,15 @@ public class AuthenticationBean
         authenticated = false;
     }
 
-    public void setAdmin(boolean admin) {
+    public boolean isAuthenticated() {
+		return authenticated;
+	}
+
+	public void setAuthenticated(boolean authenticated) {
+		this.authenticated = authenticated;
+	}
+
+	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
     public boolean isAdmin(){

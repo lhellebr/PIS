@@ -20,9 +20,11 @@
 
 <div id="content">
 	<h:form class="userPanel">
-	<h:commandLink action="#{authenticationBean.actionLogout}">
-		<h:outputText value="Logout"></h:outputText>
-	</h:commandLink>
+	<c:if test="#{authenticationBean.authenticated}">
+		<h:commandLink action="#{authenticationBean.actionLogout}">
+			<h:outputText value="Logout"></h:outputText>
+		</h:commandLink>
+	</c:if>
 	&nbsp;
 	<c:if test="#{authenticationBean.admin}">
 		<h:link value="Výběr pohledu" outcome="/admin/disamb.xhtml"/>
