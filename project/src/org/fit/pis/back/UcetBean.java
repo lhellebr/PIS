@@ -11,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.fit.pis.data.Ucet;
-import org.fit.pis.data.Ucet.Opravneni;
+import org.fit.pis.enums.Opravneni;
 import org.fit.pis.service.UcetManager;
 
 

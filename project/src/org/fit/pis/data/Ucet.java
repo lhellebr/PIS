@@ -1,6 +1,7 @@
 package org.fit.pis.data;
 
 import java.math.BigInteger;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -18,23 +19,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.DatatypeConverter;
 
+import org.fit.pis.enums.Opravneni;
+
 @Entity
 @Table(name = "ucet")
 public class Ucet {
 	private static final Logger log = Logger.getLogger( Ucet.class.getName() );
-
-	public enum Opravneni{
-		ADMINISTRATOR("Administrátor"), UREDNIK("Úředník"), POLICISTA("Policista");
-	    private String label;
-
-	    private Opravneni(String label) {
-	        this.label = label;
-	    }
-
-	    public String getLabel() {
-	        return label;
-	    }
-	}
 	
 	@Id
 	private String login;
@@ -74,14 +64,11 @@ public class Ucet {
     public boolean verifyPassword(String password){
     	try {
 			String[] parts = this.password.split("\\$");
-			log.log(Level.WARNING, "{0}      {1}", new Object[]{parts[0],parts[1]});
 			byte[] salt = DatatypeConverter.parseBase64Binary(parts[0]);
 			byte[] hash = DatatypeConverter.parseBase64Binary(parts[1]);
-			log.log(Level.WARNING, "{0}      {1}", new Object[]{Arrays.toString(salt),Arrays.toString(hash)});
 			KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 512);
 			SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
 			byte[] realHash = f.generateSecret(spec).getEncoded();
-			log.log(Level.WARNING, "{0}", new Object[]{Arrays.toString(realHash)});
 	    	return Arrays.equals(hash,realHash);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();

@@ -1,5 +1,8 @@
 package org.fit.pis.back;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -7,35 +10,55 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.fit.pis.data.Ucet;
+import org.fit.pis.enums.Opravneni;
 import org.fit.pis.service.UcetManager;
 
 @ManagedBean
 @SessionScoped
 public class AuthenticationBean
 {
+	private static final Logger log = Logger.getLogger( UcetBean.class.getName() );
 	@EJB
 	private UcetManager ucetMgr;
 	private Ucet ucet;
-    private boolean authorized;
-    private String login;
-    private String password;
+    private boolean authenticated;
     private boolean admin;
 
+	private String login;
+    private String password;
     
     public AuthenticationBean()
     {
-        authorized = false;
-        admin = true;
+        authenticated = false;
     }
 
-    public boolean isAuthorized()
+    public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+    public boolean isAdmin(){
+    	return authenticated && ucet.getOpravneni()==Opravneni.ADMINISTRATOR;
+    }
+    
+    public boolean isAuthorized(String path)
     {
-        return authorized;
+        if(!authenticated){
+        	return false;
+        }
+        if(ucet.getOpravneni()==Opravneni.ADMINISTRATOR){
+        	return true;
+        }
+        if(path.startsWith("/faces/user/") || path.startsWith("/user/")){
+        	return ucet.getOpravneni()==Opravneni.UREDNIK;
+        }
+        if(path.startsWith("/faces/police/") || path.startsWith("/police/")){
+        	return ucet.getOpravneni()==Opravneni.POLICISTA;
+        }
+        return false;
     }
 
-    public void setAuthorized(boolean authorized)
+    public void setAuthorized(boolean authenticated)
     {
-        this.authorized = authorized;
+        this.authenticated = authenticated;
     }
     
     public String getLogin()
@@ -60,7 +83,7 @@ public class AuthenticationBean
 
     public String actionLogout()
     {
-        authorized = false;
+        authenticated = false;
         return "/login";
     }
     
@@ -69,20 +92,22 @@ public class AuthenticationBean
     	ucet=ucetMgr.find(login);
         if (ucet!=null && ucet.verifyPassword(password))
         {
-            authorized = true;
+            authenticated = true;
             password = "";
-            return "login";
+            if(ucet.getOpravneni()==Opravneni.ADMINISTRATOR){
+            	admin = true;
+            	return "admin";
+            }
+            if(ucet.getOpravneni()==Opravneni.UREDNIK){
+            	return "user";
+            }
+            if(ucet.getOpravneni()==Opravneni.POLICISTA){
+            	return "police";
+            }
+            return "failed";
         }else{
         	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Invalid login or password"));
             return "failed";
         }
     }
-
-	public boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
 }

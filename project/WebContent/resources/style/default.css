@@ -57,12 +57,14 @@ body {
 	color: white;
 }
 
-a {
+#content a {
 	color: #dd8844;
 }
 
-a:hover {
+#content a:hover {
 	color: #ffaa66;
 }
 
 #content .msg {color: red;}
+
+#content .disamb {font-size: 150%; text-align: center;}

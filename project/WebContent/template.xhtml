@@ -2,10 +2,11 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
   <title>Registr řidičů - <ui:insert name="title"/></title>
-  <h:outputStylesheet name="style/default.css" />
+  <h:outputStylesheet name="/style/default.css" />
 </h:head>
 
 <h:body>
@@ -22,14 +23,14 @@
 	<h:commandLink action="#{authenticationBean.actionLogout}">
 		<h:outputText value="Logout"></h:outputText>
 	</h:commandLink>
+	&nbsp;
+	<c:if test="#{authenticationBean.admin}">
+		<h:link value="Výběr pohledu" outcome="/admin/disamb.xhtml"/>
+	</c:if>
 	</h:form>
 
 	<ui:insert name="content">
-	    Content area.  See comments below this line in the source.
-	    <!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
-		<!-- <div> -->
-	    <!-- <ui:include src="content.xhtml"/> -->  
-		<!-- </div> -->
+	    Internal server error
 	</ui:insert>
 
 </div>
