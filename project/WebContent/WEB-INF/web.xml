@@ -33,14 +33,14 @@
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
-  <!-- <filter-mapping>
+  <filter-mapping>
     <filter-name>AuthorizationFilter</filter-name>
     <url-pattern>/police/*</url-pattern>
     <url-pattern>/faces/police/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
-  </filter-mapping> -->
+  </filter-mapping>
  <!--<filter> 
      <display-name>RichFaces Filter</display-name> 
      <filter-name>richfaces</filter-name> 

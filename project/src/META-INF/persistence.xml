@@ -6,6 +6,7 @@
 		<class>org.fit.pis.data.Kradez</class>
 		<class>org.fit.pis.data.Osoba</class>
 		<class>org.fit.pis.data.RidicskyPrukaz</class>
+		<class>org.fit.pis.data.RidicskyPrukazSkupina</class>
 		<class>org.fit.pis.data.Skupina</class>
 		<class>org.fit.pis.data.Ucet</class>
 		<class>org.fit.pis.data.Vozidlo</class>

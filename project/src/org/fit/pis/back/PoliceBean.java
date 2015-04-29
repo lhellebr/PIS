@@ -153,7 +153,6 @@ public class PoliceBean
 	
 	public String actionTheftAdd()
 	{
-		//TODO kradez.setPolicista();
 		kradez.setVozidlo(vozidlo);
 		vozidlo.getThefts().add(kradez);
 		kradezMgr.save(kradez);
@@ -192,7 +191,6 @@ public class PoliceBean
 
 	public String actionPointsAdd()
 	{
-		//TODO point.setPolicista()
 		osoba.getBodovySystem().add(point);
 		pointMgr.save(point);
 		osobaMgr.save(osoba);

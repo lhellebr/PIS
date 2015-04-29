@@ -54,14 +54,14 @@ public class Vozidlo
     public boolean equals(Object other)
     {
         if (other instanceof Vozidlo)
-            return ((Vozidlo) other).getReg().equals(reg);
+            return ((Vozidlo) other).getRz().equals(rz);
         else
             return false;
     }
     
 	public String toString()
     {
-    	return reg;
+    	return rz;
     }
 	
 	public boolean getNotStolen()

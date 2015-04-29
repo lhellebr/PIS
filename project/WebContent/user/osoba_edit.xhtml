@@ -7,11 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
-	<ui:define name="title">Upravit osobu</ui:define>
 	<ui:define name="content">
 	
 		<h:form>
-			<h:messages layout="table" class="msg"></h:messages>
+			<h:messages layout="table"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="ID"></h:outputLabel>
 				<h:outputText value="#{osobaBean.osoba.id}">
@@ -35,24 +34,29 @@
 				</h:inputText>
 			</h:panelGrid>
 			
-			<h2>Cars</h2>
+			<h2>Vozidla</h2>
+			<h:commandLink action="#{osobaBean.actionVozidloNew}">Přidat vozidlo</h:commandLink>
+			<br/>
 			<h:dataTable value="#{osobaBean.osoba.vozidla}"
 			             var="vozidlo">
 				<h:column>
-					<h:outputText value="#{vozidlo.reg}"></h:outputText>
+					<h:outputText value="#{vozidlo.rz}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:outputText value="#{vozidlo.prod}"></h:outputText>
+					<h:outputText value="#{vozidlo.tovarniZnacka}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:outputText value="#{vozidlo.type}"></h:outputText>
+					<h:outputText value="#{vozidlo.obchOznaceni}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{osobaBean.actionVozidloDel(vozidlo)}">Delete</h:commandLink>
+					<h:commandLink action="#{osobaBean.actionVozidloNew(vozidlo)}">Upravit</h:commandLink>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{osobaBean.actionVozidloDel(vozidlo)}">Smazat</h:commandLink>
 				</h:column>
 			</h:dataTable>
 
-			<h:commandLink action="#{osobaBean.actionVozidloNew}">Add a car</h:commandLink>
+			
 			
 			<p class="formButtons">
 			<h:commandButton action="#{osobaBean.actionUpdate}" value="Ulozit">

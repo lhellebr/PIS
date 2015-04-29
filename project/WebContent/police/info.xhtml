@@ -6,7 +6,7 @@
  xmlns:a4j="http://richfaces.org/a4j" 
  xmlns:rich="http://richfaces.org/rich" 
  template="template.xhtml">
- 	<ui:define name="title">Vyhledat vozidlo</ui:define>
+ 
 	<ui:define name="content">
 		<h:body>
 		<h2>Vyhledání vozidla podle registrační značky</h2>
@@ -27,36 +27,56 @@
 		    
 		    <a4j:outputPanel id="out">
 				<h4>Vozidlo</h4>
-				<h:dataTable value="#{policeBean.vozidlo}"
-				             var="vozidlo">
-					<h:column>
-						<f:facet name="header">
-		                    <h:outputText value="Registrační značka"/>
-		                </f:facet>
-						<h:outputText value="#{vozidlo.reg}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-		                    <h:outputText value="Výrobce"/>
-		                </f:facet>
-						<h:outputText value="#{vozidlo.prod}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-		                    <h:outputText value="Typ"/>
-		                </f:facet>
-						<h:outputText value="#{vozidlo.type}"></h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Akce"></h:outputText>
-						</f:facet>
-						<h:commandLink action="#{policeBean.actionHistory(vozidlo)}">
-							<h:outputText value="Krádeže"></h:outputText>
-						</h:commandLink>
-					</h:column>
-				</h:dataTable>
-
+				<h:panelGrid columns="2">
+					<h:outputText value="Akce"/>
+					<h:commandLink action="#{policeBean.actionHistory(policeBean.vozidlo)}" rendered="#{not empty policeBean.vozidlo}">
+						<h:outputText value="Krádeže"/>
+					</h:commandLink>
+					<h:outputText value="" rendered="#{empty policeBean.vozidlo}"/>
+					<h:outputText value="VIN"/>
+					<h:outputText value="#{policeBean.vozidlo.vin}"/>
+					<h:outputText value="Registrační značka"/>
+					<h:outputText value="#{policeBean.vozidlo.rz}"/>
+					<h:outputText value="Tovární značka"/>
+					<h:outputText value="#{policeBean.vozidlo.tovarniZnacka}"/>
+					<h:outputText value="Obchodní označení"/>
+					<h:outputText value="#{policeBean.vozidlo.obchOznaceni}"/>
+					<h:outputText value="Druh vozidla"/>
+					<h:outputText value="#{policeBean.vozidlo.druhVozidla}"/>
+					<h:outputText value="Hmotnost"/>
+					<h:outputText value="#{policeBean.vozidlo.hmotnost}"/>
+					<h:outputText value="Zdvihový objem válců (ccm)"/>
+					<h:outputText value="#{policeBean.vozidlo.zdvihovyObjem}"/>
+					<h:outputText value="Palivo"/>
+					<h:outputText value="#{policeBean.vozidlo.palivo}"/>
+					<h:outputText value="Maximální výkon"/>
+					<h:outputText value="#{policeBean.vozidlo.maxVykon}"/>
+					<h:outputText value="Míst k sezení"/>
+					<h:outputText value="#{policeBean.vozidlo.mistSezeni}"/>
+					<h:outputText value="Míst ke stání"/>
+					<h:outputText value="#{policeBean.vozidlo.mistStani}"/>
+					<h:outputText value="Poměr výkon/hmotnost"/>
+					<h:outputText value="#{policeBean.vozidlo.vykonHmotnost}"/>
+					<h:outputText value="Maximální rychlost"/>
+					<h:outputText value="#{policeBean.vozidlo.maxRychlost}"/>
+					<h:outputText value="Řazení"/>
+					<h:outputText value="#{policeBean.vozidlo.razeni}"/>
+					<h:outputText value="Barva"/>
+					<h:outputText value="#{policeBean.vozidlo.barva}"/>
+					<h:outputText value="Spojovací zařízení"/>
+					<h:outputText value="#{policeBean.vozidlo.spojovaciZarizeni}"/>
+					<h:outputText value="Jiné"/>
+					<h:outputText value="#{policeBean.vozidlo.jine}"/>
+					<h:outputText value="Datum přihlášení"/>
+					<h:outputText value="#{policeBean.vozidlo.datumPrihlaseni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+					<h:outputText value="Datum odhlášení"/>
+					<h:outputText value="#{policeBean.vozidlo.datumOdhlaseni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:panelGrid>
+				
 				<h4>Majitel</h4>
 		    	<h:dataTable value="#{policeBean.vozidlo.owner}" var="osoba">
 					<h:column>

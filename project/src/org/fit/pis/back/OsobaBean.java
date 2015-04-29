@@ -1,5 +1,6 @@
 package org.fit.pis.back;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -95,7 +96,14 @@ public class OsobaBean
     public String actionVozidloNew()
     {
         vozidlo = new Vozidlo();
+        vozidlo.setDatumPrihlaseni(new Date());
         return "newcar";
+    }
+    
+    public String actionVozidloNew(Vozidlo vozidlo)
+    {
+    	this.vozidlo = vozidlo;
+    	return "newcar";
     }
     
     public String actionVozidloAdd()

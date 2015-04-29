@@ -22,13 +22,7 @@ public class Skupina {
 	@GeneratedValue(strategy = IDENTITY)
 	private int id;
 	private String oznaceni;
-	@Temporal(DATE)
-	private Date datumUdeleni;
-	@Temporal(DATE)
-	private Date platnostDo;
-	private String harmonizacniKod;
-	@OneToOne(cascade = { ALL }, fetch = EAGER)
-	private Ucet urednik;
+	
 	public int getId() {
 		return id;
 	}
@@ -41,30 +35,5 @@ public class Skupina {
 	public void setOznaceni(String oznaceni) {
 		this.oznaceni = oznaceni;
 	}
-	public Date getDatumUdeleni() {
-		return datumUdeleni;
-	}
-	public void setDatumUdeleni(Date datumUdeleni) {
-		this.datumUdeleni = datumUdeleni;
-	}
-	public Date getPlatnostDo() {
-		return platnostDo;
-	}
-	public void setPlatnostDo(Date platnostDo) {
-		this.platnostDo = platnostDo;
-	}
-	public String getHarmonizacniKod() {
-		return harmonizacniKod;
-	}
-	public void setHarmonizacniKod(String harmonizacniKod) {
-		this.harmonizacniKod = harmonizacniKod;
-	}
-	public Ucet getUrednik() {
-		return urednik;
-	}
-	public void setUrednik(Ucet urednik) {
-		this.urednik = urednik;
-	}
-	
-	
+		
 }

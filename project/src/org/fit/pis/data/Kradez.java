@@ -31,8 +31,6 @@ public class Kradez {
 	private String poznamky;
 	@ManyToOne(fetch=EAGER)
 	private Vozidlo vozidlo;
-	@OneToOne(cascade = { ALL }, fetch = EAGER)
-	private Ucet policista;
 	
 	
 	public long getId() {
@@ -66,12 +64,6 @@ public class Kradez {
 		this.vozidlo = vozidlo;
 	}
 	
-	public Ucet getPolicista() {
-		return policista;
-	}
-	public void setPolicista(Ucet policista) {
-		this.policista = policista;
-	}
 	public String toString()
 	{
 		return "Vozidlo " + vozidlo + ": " + datumNahlaseni + " - " + datumNalezeni + ": " + poznamky; 

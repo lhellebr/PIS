@@ -41,6 +41,6 @@ public class KradezManager
     @SuppressWarnings("unchecked")
     public List<Kradez> findByCar(Vozidlo car)
     {
-    	return em.createQuery("SELECT k FROM Kradez k WHERE k.vozidlo_reg = :reg").setParameter("reg", car.getReg()).getResultList();
+    	return em.createQuery("SELECT k FROM Kradez k WHERE k.vozidlo_rz = :rz").setParameter("rz", car.getRz()).getResultList();
     }
 }

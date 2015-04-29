@@ -27,7 +27,7 @@ public class RidicskyPrukaz{
 	@OneToOne(cascade = { ALL }, fetch = EAGER)
 	private Ucet urednik;
 	@OneToMany(cascade = { ALL }, fetch = EAGER)
-	private Collection<Skupina> skupiny;
+	private Collection<RidicskyPrukazSkupina> skupiny;
 	@OneToMany(cascade = { ALL }, fetch = EAGER)
 	private Collection<BodovySystem> bodovySystem;
 	
@@ -67,10 +67,10 @@ public class RidicskyPrukaz{
 	public void setUrednik(Ucet urednik) {
 		this.urednik = urednik;
 	}
-	public Collection<Skupina> getSkupiny() {
+	public Collection<RidicskyPrukazSkupina> getSkupiny() {
 		return skupiny;
 	}
-	public void setSkupiny(Collection<Skupina> skupiny) {
+	public void setSkupiny(Collection<RidicskyPrukazSkupina> skupiny) {
 		this.skupiny = skupiny;
 	}
 	public Collection<BodovySystem> getBodovySystem() {

@@ -24,7 +24,7 @@ public class VozidloManager
     {
         String pref = id + "%";
         @SuppressWarnings("unchecked")
-		List<Vozidlo> ret = em.createQuery("SELECT v FROM Vozidlo v WHERE v.reg LIKE :pref").setParameter("pref", pref).getResultList();
+		List<Vozidlo> ret = em.createQuery("SELECT v FROM Vozidlo v WHERE v.rz LIKE :pref").setParameter("pref", pref).getResultList();
     	return ret;
     }
     

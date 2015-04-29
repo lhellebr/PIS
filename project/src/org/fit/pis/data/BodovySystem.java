@@ -24,8 +24,6 @@ public class BodovySystem {
 	private String zaznam;
 	@Temporal(DATE)
 	private Date datumUdeleni;
-	@OneToOne(cascade = { ALL }, fetch = EAGER)
-	private Ucet policista;
 	
 	public int getId() {
 		return id;
@@ -50,11 +48,5 @@ public class BodovySystem {
 	}
 	public void setDatumUdeleni(Date datumUdeleni) {
 		this.datumUdeleni = datumUdeleni;
-	}
-	public Ucet getPolicista() {
-		return policista;
-	}
-	public void setPolicista(Ucet policista) {
-		this.policista = policista;
 	}
 }

@@ -1,38 +1,103 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="../template.xhtml">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
-
-<ui:composition template="../template.xhtml">
-	<ui:define name="title">Nové vozidlo</ui:define>
 	<ui:define name="content">
+		<h2>Registrace vozidla</h2>
 		<h:form>
-			<h:messages layout="table" class="msg"></h:messages>
-			<p>Adding a car for
-				<h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"></h:outputText>
-			</p>			
-			
+			<h:messages layout="table"></h:messages>
 			<h:panelGrid columns="2">
-				<h:outputLabel rendered="true" value="Registration"></h:outputLabel>
-				<h:inputText value="#{osobaBean.vozidlo.reg}" required="true">
-					<f:validateLength minimum="2" maximum="20" />
+				<h:outputText value="Vlastník"/>
+				<h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/>
+				<h:outputLabel rendered="true" value="VIN"/>
+				<h:inputText value="#{osobaBean.vozidlo.vin}" required="true">
+					<f:validateLength minimum="1" maximum="17" />
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Producer"></h:outputLabel>
-				<h:inputText value="#{osobaBean.vozidlo.prod}" required="true">
+				<h:outputLabel rendered="true" value="Registrační značka"/>
+				<h:inputText value="#{osobaBean.vozidlo.rz}" required="true">
+					<f:validateLength minimum="7" maximum="7" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Tovární značka"/>
+				<h:inputText value="#{osobaBean.vozidlo.tovarniZnacka}" required="true">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Obchodní označení"/>
+				<h:inputText value="#{osobaBean.vozidlo.obchOznaceni}" required="true">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Druh vozidla"/>
+				<h:inputText value="#{osobaBean.vozidlo.druhVozidla}" required="true">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Hmotnost"/>
+				<h:inputText value="#{osobaBean.vozidlo.hmotnost}" required="true">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Zdvihový objem válců (ccm)"/>
+				<h:inputText value="#{osobaBean.vozidlo.zdvihovyObjem}" required="true">
+					<f:validateLongRange minimum="1"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Palivo"/>
+				<h:inputText value="#{osobaBean.vozidlo.palivo}" required="true">
+					<f:validateLength maximum="10"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Maximální výkon"/>
+				<h:inputText value="#{osobaBean.vozidlo.maxVykon}" required="true">
+					<f:validateLength maximum="16"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Míst k sezení"/>
+				<h:inputText value="#{osobaBean.vozidlo.mistSezeni}" required="true">
+					<f:validateLongRange minimum="1" maximum="60"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Míst ke stání"/>
+				<h:inputText value="#{osobaBean.vozidlo.mistStani}" required="true">
+					<f:validateLongRange minimum="0" maximum="100"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Poměr výkon/hmotnost"/>
+				<h:inputText value="#{osobaBean.vozidlo.vykonHmotnost}">
+					<f:validateDoubleRange minimum="0.0"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Maximální rychlost"/>
+				<h:inputText value="#{osobaBean.vozidlo.maxRychlost}" required="true">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Type"></h:outputLabel>
-				<h:inputText value="#{osobaBean.vozidlo.type}" required="true">
-					<f:validateLength minimum="2" maximum="80"/>
+				<h:outputLabel rendered="true" value="Řazení"/>
+				<h:inputText value="#{osobaBean.vozidlo.razeni}" required="true">
+					<f:validateLength minimum="1"/>
 				</h:inputText>
-				<h:commandButton action="#{osobaBean.actionVozidloAdd}" value="Insert">
+				<h:outputLabel rendered="true" value="Barva"/>
+				<h:inputText value="#{osobaBean.vozidlo.barva}" required="true">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Spojovací zařízení"/>
+				<h:inputText value="#{osobaBean.vozidlo.spojovaciZarizeni}">
+					<f:validateLength maximum="255"/>
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Jiné"/>
+				<h:inputTextarea value="#{osobaBean.vozidlo.jine}" cols="32" rows="4">
+					<f:validateLength maximum="255"/>
+				</h:inputTextarea>
+				<h:outputLabel rendered="true" value="Datum přihlášení"/>
+				<rich:calendar value="#{osobaBean.vozidlo.datumPrihlaseni}" id="calendar1" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}">
+                </rich:calendar>
+				<h:outputLabel rendered="true" value="Datum odhlášení"/>
+				<rich:calendar value="#{osobaBean.vozidlo.datumOdhlaseni}" id="calendar2" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}">
+                </rich:calendar>
+				<h:outputLabel rendered="true" value=" "/>
+				<h:commandButton action="#{osobaBean.actionVozidloAdd}" value="Uložit">
 				</h:commandButton>
 			</h:panelGrid>
 		</h:form>
 	</ui:define>
 	
 </ui:composition>
-</html>
