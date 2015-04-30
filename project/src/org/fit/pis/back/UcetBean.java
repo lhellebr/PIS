@@ -1,8 +1,6 @@
 package org.fit.pis.back;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -20,12 +18,16 @@ import org.fit.pis.service.UcetManager;
 @SessionScoped
 public class UcetBean
 {
-	// private static final Logger log = Logger.getLogger( UcetBean.class.getName() );
-	// --- log.log( Level.WARNING, "!!!");
 	@EJB
 	private UcetManager ucetMgr;
+	@ManagedProperty(value="#{authenticationBean}")
+    private AuthenticationBean authenticationBean;
 	private Ucet ucet;
     
+	public void setAuthenticationBean(AuthenticationBean authenticationBean) {
+		this.authenticationBean = authenticationBean;
+	}
+	
     public Opravneni[] getEnumOpravneni(){
     	return Opravneni.values();
     }
@@ -68,8 +70,12 @@ public class UcetBean
 	
     public String actionUpdate()
     {
-    	if()
-        ucetMgr.save(ucet);
+    	if(authenticationBean.isAdmin() || ucet.getLogin().equals(authenticationBean.getLogin())){
+    		ucetMgr.save(ucet);
+    	}else{
+    		FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Nope, you can't change another user's password unless you are admin. Don't try to hack me, please! :("));
+    		return "edit";
+    	}
         return "update";
     }
 	
