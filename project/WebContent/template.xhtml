@@ -23,6 +23,10 @@
 		<h:commandLink action="#{authenticationBean.actionLogout}">
 			<h:outputText value="Logout"></h:outputText>
 		</h:commandLink>
+		&nbsp;
+		<h:commandLink action="#{ucetBean.actionMyEdit}">
+			<h:outputText value="Změnit heslo"></h:outputText>
+		</h:commandLink>
 	</c:if>
 	&nbsp;
 	<c:if test="#{authenticationBean.admin}">

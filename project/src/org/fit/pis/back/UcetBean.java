@@ -85,6 +85,19 @@ public class UcetBean
     	return "edit";
     }
     
+    public String actionMyEdit()
+    {
+    	setUcet(authenticationBean.getUcet());
+    	String prefix;
+    	switch(authenticationBean.getUcet().getOpravneni()){
+    	case ADMINISTRATOR: prefix = "admin"; break;
+    	case UREDNIK: prefix = "user"; break;
+    	case POLICISTA: prefix = "police"; break;
+    	default: prefix = "admin";
+    	}
+    	return "/"+prefix+"/myedit.xhtml";
+    }
+    
     public String actionDelete(Ucet ucet)
     {
     	ucetMgr.remove(ucet);

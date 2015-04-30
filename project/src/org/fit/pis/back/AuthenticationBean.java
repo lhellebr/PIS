@@ -27,7 +27,29 @@ public class AuthenticationBean
 	private String login;
     private String password;
     
-    public AuthenticationBean()
+    
+    
+    public UcetManager getUcetMgr() {
+		return ucetMgr;
+	}
+
+	public void setUcetMgr(UcetManager ucetMgr) {
+		this.ucetMgr = ucetMgr;
+	}
+
+	public Ucet getUcet() {
+		return ucet;
+	}
+
+	public void setUcet(Ucet ucet) {
+		this.ucet = ucet;
+	}
+
+	public static Logger getLog() {
+		return log;
+	}
+
+	public AuthenticationBean()
     {
         authenticated = false;
     }

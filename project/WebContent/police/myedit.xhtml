@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="title">Změnit heslo</ui:define>
+	<ui:define name="css">
+		<h:outputStylesheet name="/style/police.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h2>Změnit heslo</h2>
+		<h:form>
+			<h:messages layout="table" class="msg"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
+				<h:outputText value="#{ucetBean.ucet.login}">
+				</h:outputText>
+				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
+				<h:inputSecret value="#{ucetBean.ucet.password}" required="true"
+					requiredMessage="Zadejte heslo">
+					<f:validateLength minimum="1" maximum="80" />
+				</h:inputSecret>
+			</h:panelGrid>
+			
+			<p class="formButtons">
+			<h:commandButton action="#{ucetBean.actionUpdate}" value="Uložit">
+			</h:commandButton>
+			<h:commandButton action="/police/info.xhtml" value="Zrušit" immediate="true">
+			</h:commandButton>
+			</p>
+			
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+</html>
