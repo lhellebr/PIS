@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -63,6 +64,13 @@ public class UcetBean
 		}
         ucetMgr.save(ucet);
         return "insert";
+    }
+	
+    public String actionUpdate()
+    {
+    	if()
+        ucetMgr.save(ucet);
+        return "update";
     }
 	
     public String actionEdit(Ucet ucet)
