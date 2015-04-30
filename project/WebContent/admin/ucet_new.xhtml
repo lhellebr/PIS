@@ -8,6 +8,9 @@
 
 <ui:composition template="../template.xhtml">
 	<ui:define name="title">Nový účet</ui:define>
+ 	<ui:define name="css">
+		<h:outputStylesheet name="/style/admin.css" />
+	</ui:define>
 	<ui:define name="content">
 		<h:form>
 			<h:messages layout="table" class="msg"></h:messages>
@@ -23,9 +26,9 @@
 				    <f:selectItems value="#{ucetBean.enumOpravneni}" var="opravneni" itemValue="#{opravneni}" itemLabel="#{opravneni.label}" />
 				</h:selectOneMenu>
 				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
-				<h:inputText value="#{ucetBean.ucet.password}" required="true">
+				<h:inputSecret value="#{ucetBean.ucet.password}" required="true">
 					<f:validateLength minimum="2" maximum="80"/>
-				</h:inputText>
+				</h:inputSecret>
 				<h:commandButton action="#{ucetBean.actionInsertNew}" value="Vlozit">
 				</h:commandButton>
 				<h:commandButton action="cancel" value="Zrusit" immediate="true">

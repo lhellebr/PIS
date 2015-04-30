@@ -8,7 +8,7 @@ body {
 
 #header {
 	padding: 1em;
-	background-color: #dd8844;
+	background-color: #66bb66;
 	color: white;
 }
 
@@ -35,7 +35,7 @@ body {
 	text-align: center;
 }
 
-#content form.userPanel {
+#header form.userPanel {
 	text-align: right;
 }
 #content table {
@@ -43,26 +43,34 @@ body {
 }
 
 #content table td, table th {
-	border: 1px solid #dd8844;
+	border: 1px solid #66bb66;
 	padding: 0.3em 0.5em;
 	text-align: right;
 }
 
 #footer {
 	padding: 0.5em;
-	background-color: #dd8844;
-	border-top: 1px solid orange;
+	background-color: #66bb66;
+	border-top: 1px solid green;
 	text-align: right;
 	font-size: 75%;
 	color: white;
 }
 
+#header a {
+	color: white;
+}
+
+#header a:hover {
+	color: #88dd88;
+}
+
 #content a {
-	color: #dd8844;
+	color: #66bb66;
 }
 
 #content a:hover {
-	color: #ffaa66;
+	color: #88dd88;
 }
 
 #content .msg {color: red;}

@@ -7,6 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
+	<ui:define name="title">Výběr pohledu</ui:define>
+ 	<ui:define name="css">
+		<h:outputStylesheet name="/style/admin.css" />
+	</ui:define>
 	<ui:define name="content">
 		<div class="disamb">
 			<h:link value="Administrace" outcome="ucet_list.xhtml" class="disamb"/><br/>

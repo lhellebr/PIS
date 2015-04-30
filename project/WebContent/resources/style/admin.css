@@ -8,7 +8,7 @@ body {
 
 #header {
 	padding: 1em;
-	background-color: #006db2;
+	background-color: #dd8844;
 	color: white;
 }
 
@@ -43,15 +43,15 @@ body {
 }
 
 #content table td, table th {
-	border: 1px solid #006db2;
+	border: 1px solid #dd8844;
 	padding: 0.3em 0.5em;
 	text-align: right;
 }
 
 #footer {
 	padding: 0.5em;
-	background-color: #006db2;
-	border-top: 1px solid black;
+	background-color: #dd8844;
+	border-top: 1px solid orange;
 	text-align: right;
 	font-size: 75%;
 	color: white;
@@ -62,22 +62,17 @@ body {
 }
 
 #header a:hover {
-	color: #309de2;
+	color: #ffaa66;
 }
 
-a {
-	color: #006db2;
+#content a {
+	color: #dd8844;
 }
 
-a:hover {
-	color: #309de2;
+#content a:hover {
+	color: #ffaa66;
 }
 
-input.rf-au-inp {
-	vertical-align: baseline !important;
-	paddnig: 2px !important;
-}
+#content .msg {color: red;}
 
-.noborder td {
-	border: none !important;
-}
+#content .disamb {font-size: 150%; text-align: center;}
