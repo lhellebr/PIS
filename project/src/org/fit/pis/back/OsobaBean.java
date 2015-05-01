@@ -193,4 +193,14 @@ public class OsobaBean
     	this.osobaMgr.save(osoba);
         return "add";
     }
+    
+    public String actionEditRidicskyPrukaz(RidicskyPrukaz prukaz) {
+    	ridicskyPrukaz = prukaz;
+    	return "editPrukaz";
+    }
+    
+    public String actionSaveRidicskyPrukaz(RidicskyPrukaz prukaz) {
+    	ridicskyPrukazMgr.save(prukaz);
+    	return "prukazy";
+    }
 }
