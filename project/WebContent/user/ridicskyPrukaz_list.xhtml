@@ -7,62 +7,63 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="../template.xhtml">
-	<ui:define name="title">Seznam osob</ui:define>
+	<ui:define name="title">Seznam řidičských průkazů</ui:define>
 	<ui:define name="css">
 		<h:outputStylesheet name="/style/default.css" />
 	</ui:define>
 	<ui:define name="content">
 
-		<h2>Osoby</h2>
+		<h2>Řidičské průkazy</h2>
 		
 		<h:form>
-			<h:dataTable value="#{osobaBean.osoby}" var="osoba">
+			<h:dataTable value="#{osobaBean.prukazy}" var="ridicskyPrukaz">
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="ID"/>
 	                </f:facet>
-					<h:outputText value="#{osoba.id}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.id}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Jmeno"/>
 	                </f:facet>
-					<h:outputText value="#{osoba.jmeno}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.osoba.jmeno}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Prijmeni"/>
 	                </f:facet>
-					<h:outputText value="#{osoba.prijmeni}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.osoba.prijmeni}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-	                    <h:outputText value="Misto narozeni"/>
+	                    <h:outputText value="Platnost od"/>
 	                </f:facet>
-					<h:outputText value="#{osoba.mistoNarozeni}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.platnostOd}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-	                    <h:outputText value="Bydliste (obec)"/>
+	                    <h:outputText value="Platnost do"/>
 	                </f:facet>
-					<h:outputText value="#{osoba.bydlisteObec}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.platnostDo}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{osobaBean.actionShowPrukazy(osoba.id)}">
-						<h:outputText value="Řidičské průkazy"></h:outputText>
-					</h:commandLink>
+					<f:facet name="header">
+	                    <h:outputText value="Vydal"/>
+	                </f:facet>
+					<h:outputText value="#{ridicskyPrukaz.vydavatel}"></h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{osobaBean.actionEdit(osoba)}">
+					<h:commandLink action="#{osobaBean.actionEditRidicskyPrukaz(ridicskyPrukaz)}">
 						<h:outputText value="Upravit"></h:outputText>
 					</h:commandLink>
 					&nbsp;
-					<h:commandLink action="#{osobaBean.actionDelete(osoba)}">
+					<h:commandLink action="#{osobaBean.actionDeleteRidicskyPrukaz(ridicskyPrukaz)}">
 						<h:outputText value="Smazat"></h:outputText>
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
-			<h:commandLink action="#{osobaBean.actionNew}">
+			<h:commandLink action="#{ridicskyPrukazBean.actionNew}">
 				<h:outputText value="Vlozit"></h:outputText>
 			</h:commandLink>
 	

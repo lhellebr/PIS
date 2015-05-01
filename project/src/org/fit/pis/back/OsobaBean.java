@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 
 import org.fit.pis.data.*;
 import org.fit.pis.service.OsobaManager;
+import org.fit.pis.service.RidicskyPrukazManager;
 
 
 @ManagedBean
@@ -18,8 +19,10 @@ public class OsobaBean
 {
 	@EJB
 	private OsobaManager osobaMgr;
+	private RidicskyPrukazManager ridicskyPrukazMgr;
     private Osoba osoba;
     private Vozidlo vozidlo;
+    private RidicskyPrukaz ridicskyPrukaz;
     private boolean update;
     
     public OsobaBean()
@@ -58,6 +61,11 @@ public class OsobaBean
     public void setVozidlo(Vozidlo vozidlo)
     {
         this.vozidlo = vozidlo;
+    }
+    
+    public List<RidicskyPrukaz> getPrukazy()
+    {
+        return ridicskyPrukazMgr.findAll();
     }
 
    //====================================================
