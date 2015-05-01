@@ -24,12 +24,8 @@ public class RidicskyPrukaz{
 	private String vydavatel;
 	@ManyToOne(cascade = { ALL }, fetch = EAGER)
 	private Osoba osoba;
-	@OneToOne(cascade = { ALL }, fetch = EAGER)
-	private Ucet urednik;
 	@OneToMany(cascade = { ALL }, fetch = EAGER)
 	private Collection<RidicskyPrukazSkupina> skupiny;
-	@OneToMany(cascade = { ALL }, fetch = EAGER)
-	private Collection<BodovySystem> bodovySystem;
 	
 	public int getId() {
 		return id;
@@ -61,22 +57,10 @@ public class RidicskyPrukaz{
 	public void setOsoba(Osoba osoba) {
 		this.osoba = osoba;
 	}
-	public Ucet getUrednik() {
-		return urednik;
-	}
-	public void setUrednik(Ucet urednik) {
-		this.urednik = urednik;
-	}
 	public Collection<RidicskyPrukazSkupina> getSkupiny() {
 		return skupiny;
 	}
 	public void setSkupiny(Collection<RidicskyPrukazSkupina> skupiny) {
 		this.skupiny = skupiny;
-	}
-	public Collection<BodovySystem> getBodovySystem() {
-		return bodovySystem;
-	}
-	public void setBodovySystem(Collection<BodovySystem> bodovySystem) {
-		this.bodovySystem = bodovySystem;
 	}
 }
