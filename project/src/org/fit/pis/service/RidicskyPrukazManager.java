@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.fit.pis.data.RidicskyPrukaz;
+import org.fit.pis.data.Osoba;
 
 
 @Stateless
@@ -37,5 +38,13 @@ public class RidicskyPrukazManager
     public List<RidicskyPrukaz> findAll()
     {
         return em.createQuery("SELECT p FROM RidicskyPrukaz p").getResultList();
+    }
+    
+    @SuppressWarnings("unchecked")
+    public List<RidicskyPrukaz> findFor(Osoba osoba)
+    {
+        return em.createQuery("SELECT p FROM RidicskyPrukaz p WHERE Osoba_ID=:osoba_ID")
+                .setParameter("osoba_ID", osoba.getId())
+                .getResultList();
     }
 }
