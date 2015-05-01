@@ -158,6 +158,7 @@ public class OsobaBean
     	{
 	        vozidlo.setOwner(osoba);
 	        osoba.getVozidla().add(vozidlo);
+	    	this.osobaMgr.save(osoba);
     	}
         return "add";
     }
