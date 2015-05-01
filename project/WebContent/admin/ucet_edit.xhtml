@@ -14,7 +14,7 @@
 	<ui:define name="content">
 		<h2>Změnit heslo</h2>
 		<h:form>
-			<h:messages layout="table" class="msg"></h:messages>
+			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
 				<h:outputText value="#{ucetBean.ucet.login}">
@@ -27,10 +27,8 @@
 			</h:panelGrid>
 			
 			<p class="formButtons">
-			<h:commandButton action="#{ucetBean.actionUpdate}" value="Uložit">
-			</h:commandButton>
-			<h:commandButton action="cancel" value="Zrušit" immediate="true">
-			</h:commandButton>
+			<h:commandButton action="#{ucetBean.actionUpdate}" value="Uložit"></h:commandButton>
+			<h:commandButton action="cancel" value="Zrušit" immediate="true"></h:commandButton>
 			</p>
 			
 		</h:form>

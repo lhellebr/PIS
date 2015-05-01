@@ -1,5 +1,4 @@
 /* Default style sheet */
-
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -38,6 +37,7 @@ body {
 #header form.userPanel {
 	text-align: right;
 }
+
 #content table {
 	border-collapse: collapse;
 }
@@ -46,6 +46,17 @@ body {
 	border: 1px solid #66bb66;
 	padding: 0.3em 0.5em;
 	text-align: right;
+}
+
+#content table.errors {
+	border: medium none;
+	border-collapse: separate;
+	margin-bottom: 10px;
+}
+
+#content table.errors td {
+	background: none repeat scroll 0 0 lightsalmon;
+	border: medium none;
 }
 
 #footer {
@@ -73,8 +84,15 @@ body {
 	color: #88dd88;
 }
 
-#content .msg {color: red;}
+#content .msg {
+	color: red;
+}
 
-#content .disamb {font-size: 150%; text-align: center;}
+#content .disamb {
+	font-size: 150%;
+	text-align: center;
+}
 
-#content .req {background: #bfffbf;}
+#content .req {
+	background: #bfffbf;
+}

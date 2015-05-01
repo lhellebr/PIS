@@ -13,10 +13,10 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			<h:messages layout="table" class="msg"></h:messages>
+			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
-				<h:outputLabel rendered="true" value="Osoba"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"  class="req"
+				<h:outputLabel rendered="true" value="Jmeno"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true" class="req"
 					requiredMessage="Jmeno je povinne"
 					validatorMessage="Neplatne jmeno">
 					<f:validateLength minimum="2" maximum="80" />
