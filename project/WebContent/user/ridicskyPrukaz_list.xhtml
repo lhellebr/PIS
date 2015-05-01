@@ -21,32 +21,36 @@
 					<f:facet name="header">
 	                    <h:outputText value="Platnost od"/>
 	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.platnostOd}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.platnostOd}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Platnost do"/>
 	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.platnostDo}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.platnostDo}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Vydal"/>
 	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.vydavatel}"></h:outputText>
+					<h:outputText value="#{ridicskyPrukaz.vydavatel}"/>
 				</h:column>
 				<h:column>
 					<h:commandLink action="#{osobaBean.actionEditRidicskyPrukaz(ridicskyPrukaz)}">
-						<h:outputText value="Upravit"></h:outputText>
+						<h:outputText value="Upravit"/>
 					</h:commandLink>
 					&nbsp;
 					<h:commandLink action="#{osobaBean.actionDeleteRidicskyPrukaz(ridicskyPrukaz)}">
-						<h:outputText value="Smazat"></h:outputText>
+						<h:outputText value="Smazat"/>
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
 			<h:commandLink action="#{osobaBean.actionPrukazNew}">
-				<h:outputText value="Vložit"></h:outputText>
+				<h:outputText value="Vložit"/>
 			</h:commandLink>
 	
 		</h:form>

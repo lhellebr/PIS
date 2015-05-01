@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" 
+ 	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="../template.xhtml">
 	<ui:define name="title">Nový řidičský průkaz</ui:define>
@@ -18,13 +20,19 @@
 				<h:outputLabel rendered="true" value="Vydavatel"></h:outputLabel>
 				<h:inputText value="#{osobaBean.ridicskyPrukaz.vydavatel}" required="true"  class="req"/>
 				<h:outputLabel rendered="true" value="Platnost od"></h:outputLabel>
-				<h:inputText value="#{osobaBean.ridicskyPrukaz.platnostOd}" required="true"  class="req">
-					<f:convertDateTime pattern="MM/dd/yyyy" />
-				</h:inputText>
+				<rich:calendar value="#{osobaBean.ridicskyPrukaz.platnostOd}" id="calendar1" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}" required="true"
+                    requiredMessage="Pole Platnost od je povinné">
+                </rich:calendar>
 				<h:outputLabel rendered="true" value="Platnost do"></h:outputLabel>
-				<h:inputText value="#{osobaBean.ridicskyPrukaz.platnostDo}" required="true"  class="req">
-					<f:convertDateTime pattern="MM/dd/yyyy" />
-				</h:inputText>
+				<rich:calendar value="#{osobaBean.ridicskyPrukaz.platnostDo}" id="calendar2" locale="cs/CZ"
+                    popup="true" datePattern="d. M. yyyy"
+                    showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
+                    disabled="#{calendarBean.disabled}" required="true"
+                    requiredMessage="Pole Platnost do je povinné">
+                </rich:calendar>
 				<h:commandButton action="#{osobaBean.actionPrukazAdd}" value="Vlozit">
 				</h:commandButton>
 				<h:commandButton action="cancel" value="Zrusit" immediate="true">
