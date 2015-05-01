@@ -81,3 +81,8 @@ input.rf-au-inp {
 .noborder td {
 	border: none !important;
 }
+
+#content .warning {
+	text-align: center !important;
+	font-weight: bold;
+}

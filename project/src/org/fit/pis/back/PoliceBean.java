@@ -36,6 +36,8 @@ public class PoliceBean
     private BodovySystemManager pointMgr;
     private BodovySystem point;
     
+    private boolean update;
+    
     public PoliceBean()
     {
     	vozidlo = null;
@@ -130,6 +132,23 @@ public class PoliceBean
     	return (sum > 12) ? 12 : (sum < 0) ? 0 : sum;
     }
     
+    public boolean getStolen()
+    {
+    	if (vozidlo == null)
+    	{
+    		return false;
+    	}
+    	
+    	for (Kradez theft:vozidlo.getThefts())
+    	{
+    		if (theft.getDatumNalezeni() == null)
+    		{
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     //===============================
     
     public String actionPoints(Osoba osoba)
@@ -148,15 +167,20 @@ public class PoliceBean
 	public String actionTheft(Kradez kradez)
     {
 		setKradez(kradez);
+		this.update = true;
     	return "theft";
     }
 	
 	public String actionTheftAdd()
 	{
-		kradez.setVozidlo(vozidlo);
-		vozidlo.getThefts().add(kradez);
+		if (!update)
+		{
+			kradez.setVozidlo(vozidlo);
+			vozidlo.getThefts().add(kradez);
+		}
 		kradezMgr.save(kradez);
 		setKradez(new Kradez());
+		this.update = false;
 		return "save";
 	}
 	

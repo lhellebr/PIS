@@ -30,6 +30,12 @@
 		    
 		    <a4j:outputPanel id="out">
 				<h4>Vozidlo</h4>
+				<center>
+					<p class="warning">
+						<h:outputText value="Vozidlo je evidováno jako kradené." rendered="#{policeBean.stolen}" />
+					</p>
+				</center>
+				
 				<h:panelGrid columns="2">
 					<h:outputText value="Akce"/>
 					<h:commandLink action="#{policeBean.actionHistory(policeBean.vozidlo)}" rendered="#{not empty policeBean.vozidlo}">
