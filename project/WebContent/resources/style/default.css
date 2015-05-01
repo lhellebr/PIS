@@ -49,14 +49,14 @@ body {
 }
 
 #content table.errors {
-    border: medium none;
-    border-collapse: separate;
-    margin-bottom: 10px;
+	border: medium none;
+	border-collapse: separate;
+	margin-bottom: 10px;
 }
 
 #content table.errors td {
-    background: none repeat scroll 0 0 lightsalmon;
-    border: medium none;
+	background: none repeat scroll 0 0 lightsalmon;
+	border: medium none;
 }
 
 #footer {
@@ -91,4 +91,8 @@ body {
 #content .disamb {
 	font-size: 150%;
 	text-align: center;
+}
+
+#content .req {
+	background: #bfffbf;
 }

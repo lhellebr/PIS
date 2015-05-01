@@ -14,27 +14,9 @@
 	<ui:define name="content">
 
 		<h2>Řidičské průkazy</h2>
-		
+		<h3><h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/></h3>
 		<h:form>
 			<h:dataTable value="#{osobaBean.osoba.ridicskePrukazy}" var="ridicskyPrukaz">
-				<h:column>
-					<f:facet name="header">
-	                    <h:outputText value="ID"/>
-	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.id}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-	                    <h:outputText value="Jmeno"/>
-	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.osoba.jmeno}"></h:outputText>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-	                    <h:outputText value="Prijmeni"/>
-	                </f:facet>
-					<h:outputText value="#{ridicskyPrukaz.osoba.prijmeni}"></h:outputText>
-				</h:column>
 				<h:column>
 					<f:facet name="header">
 	                    <h:outputText value="Platnost od"/>
@@ -63,8 +45,8 @@
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
-			<h:commandLink action="#{ridicskyPrukazBean.actionNew}">
-				<h:outputText value="Vlozit"></h:outputText>
+			<h:commandLink action="#{osobaBean.actionPrukazNew}">
+				<h:outputText value="Vložit"></h:outputText>
 			</h:commandLink>
 	
 		</h:form>

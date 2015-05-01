@@ -19,13 +19,48 @@ public class OsobaBean
 {
 	@EJB
 	private OsobaManager osobaMgr;
+	@EJB
 	private RidicskyPrukazManager ridicskyPrukazMgr;
     private Osoba osoba;
     private Vozidlo vozidlo;
     private RidicskyPrukaz ridicskyPrukaz;
     private boolean update;
     
-    public OsobaBean()
+    
+    
+    public OsobaManager getOsobaMgr() {
+		return osobaMgr;
+	}
+
+	public void setOsobaMgr(OsobaManager osobaMgr) {
+		this.osobaMgr = osobaMgr;
+	}
+
+	public RidicskyPrukazManager getRidicskyPrukazMgr() {
+		return ridicskyPrukazMgr;
+	}
+
+	public void setRidicskyPrukazMgr(RidicskyPrukazManager ridicskyPrukazMgr) {
+		this.ridicskyPrukazMgr = ridicskyPrukazMgr;
+	}
+
+	public RidicskyPrukaz getRidicskyPrukaz() {
+		return ridicskyPrukaz;
+	}
+
+	public void setRidicskyPrukaz(RidicskyPrukaz ridicskyPrukaz) {
+		this.ridicskyPrukaz = ridicskyPrukaz;
+	}
+
+	public boolean isUpdate() {
+		return update;
+	}
+
+	public void setUpdate(boolean update) {
+		this.update = update;
+	}
+
+	public OsobaBean()
     {
         osoba = new Osoba();
         vozidlo = new Vozidlo();
@@ -133,4 +168,24 @@ public class OsobaBean
         return "delete";
     }
     
+    public String actionShowPrukazy(Osoba osoba){
+    	setOsoba(osoba);
+    	return "prukazy";
+    }
+    
+    public String actionPrukazNew()
+    {
+        ridicskyPrukaz = new RidicskyPrukaz();
+        ridicskyPrukaz.setVydavatel(osoba.getJmeno()+" "+osoba.getPrijmeni());
+        ridicskyPrukaz.setPlatnostOd(new Date());
+        return "newPrukaz";
+    }
+    
+    public String actionPrukazAdd()
+    {
+    	this.ridicskyPrukaz.setOsoba(osoba);
+    	this.osoba.getRidicskePrukazy().add(ridicskyPrukaz);
+    	this.osobaMgr.save(osoba);
+        return "add";
+    }
 }

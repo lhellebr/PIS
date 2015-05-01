@@ -86,3 +86,14 @@ input.rf-au-inp {
 	text-align: center !important;
 	font-weight: bold;
 }
+
+#content table.errors {
+	border: medium none;
+	border-collapse: separate;
+	margin-bottom: 10px;
+}
+
+#content table.errors td {
+	background: none repeat scroll 0 0 lightsalmon;
+	border: medium none;
+}

@@ -20,19 +20,19 @@
 				<h:outputText value="#{osobaBean.osoba.id}">
 				</h:outputText>
 				<h:outputLabel rendered="true" value="Jméno"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"
+				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true" class="req"
 					requiredMessage="Položka 'Jméno' je povinná"
 					validatorMessage="Jméno musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" maximum="80" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Příjmení"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true"
+				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true" class="req"
 					requiredMessage="Položka 'Příjmení' je povinná"
 					validatorMessage="Příjmení musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Místo narození"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true"
+				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true" class="req"
 					requiredMessage="Položka 'Příjmení' je povinná"
 					validatorMessage="Příjmení musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" />

@@ -16,7 +16,13 @@
 
 <div id="header">
     <ui:insert name="header">
-    	<h1>Registr řidičů</h1>
+    <h:form class="heading">
+    <h1>
+    	<h:commandLink action="#{authenticationBean.actionHome}">
+			<h:outputText value="Registr řidičů"></h:outputText>
+		</h:commandLink>
+	</h1>
+	</h:form>
     </ui:insert>
    	<h:form class="userPanel">
 	<c:if test="#{authenticationBean.authenticated}">
@@ -27,10 +33,10 @@
 		<h:commandLink action="#{ucetBean.actionMyEdit}">
 			<h:outputText value="Změnit heslo"></h:outputText>
 		</h:commandLink>
-	</c:if>
-	&nbsp;
-	<c:if test="#{authenticationBean.admin}">
-		<h:link value="Výběr pohledu" outcome="/admin/disamb.xhtml"/>
+		&nbsp;
+		<h:commandLink action="#{authenticationBean.actionHome}">
+			<h:outputText value="Home"></h:outputText>
+		</h:commandLink>
 	</c:if>
 	</h:form>
 </div>

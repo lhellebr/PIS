@@ -18,67 +18,67 @@
 				<h:outputText value="Vlastník"/>
 				<h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/>
 				<h:outputLabel rendered="true" value="VIN"/>
-				<h:inputText value="#{osobaBean.vozidlo.vin}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.vin}" required="true" class="req"
 					requiredMessage="Položka 'VIN' je povinná"
 					validatorMessage="VIN obsahuje nejvýše 17 znaků">
 					<f:validateLength minimum="1" maximum="17" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Registrační značka"/>
-				<h:inputText value="#{osobaBean.vozidlo.rz}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.rz}" required="true" class="req"
 					requiredMessage="Položka 'Registrační značka' je povinná"
 					validatorMessage="Registrační značka obsahuje 7 znaků">
 					<f:validateLength minimum="7" maximum="7" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Tovární značka"/>
-				<h:inputText value="#{osobaBean.vozidlo.tovarniZnacka}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.tovarniZnacka}" required="true" class="req"
 					requiredMessage="Položka 'Tovární značka' je povinná"
 					validatorMessage="Tovární značka může obsahovat nejvýše 255 znaků">
 					<f:validateLength maximum="255"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Obchodní označení"/>
-				<h:inputText value="#{osobaBean.vozidlo.obchOznaceni}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.obchOznaceni}" required="true" class="req"
 					requiredMessage="Položka 'Obchodní označení' je povinná"
 					validatorMessage="Obchodní označení může obsahovat nejvýše 255 znaků">
 					<f:validateLength maximum="255"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Druh vozidla"/>
-				<h:inputText value="#{osobaBean.vozidlo.druhVozidla}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.druhVozidla}" required="true" class="req"
 					requiredMessage="Položka 'Druh vozidla' je povinná"
 					validatorMessage="Druh vozidla může obsahovat nejvýše 255 znaků">
 					<f:validateLength maximum="255"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Hmotnost"/>
-				<h:inputText value="#{osobaBean.vozidlo.hmotnost == 0 ? '' : osobaBean.vozidlo.hmotnost}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.hmotnost == 0 ? '' : osobaBean.vozidlo.hmotnost}" required="true" class="req"
 					requiredMessage="Položka 'Hmotnost' je povinná"
 					validatorMessage="Hmotnost může obsahovat nejvýše 255 znaků">
 					<f:validateLength maximum="255"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Zdvihový objem válců (ccm)"/>
-				<h:inputText value="#{osobaBean.vozidlo.zdvihovyObjem == 0 ? '' : osobaBean.vozidlo.zdvihovyObjem}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.zdvihovyObjem == 0 ? '' : osobaBean.vozidlo.zdvihovyObjem}" required="true" class="req"
 					requiredMessage="Položka 'Zdvihový objem válců' je povinná"
 					validatorMessage="Zdvihový objem válců musí být kladné číslo">
 					<f:validateLongRange minimum="1"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Palivo"/>
-				<h:inputText value="#{osobaBean.vozidlo.palivo}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.palivo}" required="true" class="req"
 					requiredMessage="Položka 'VIN' je povinná"
 					validatorMessage="Palivo může obsahovat nejvýše 10 znaků">
 					<f:validateLength maximum="10"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Maximální výkon"/>
-				<h:inputText value="#{osobaBean.vozidlo.maxVykon == 0 ? '' : osobaBean.vozidlo.maxVykon}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.maxVykon == 0 ? '' : osobaBean.vozidlo.maxVykon}" required="true" class="req"
 					requiredMessage="Položka 'Maximální výkon' je povinná"
 					validatorMessage="Neplatná hodnota maximálního výkonu">
 					<f:validateLength maximum="16"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Míst k sezení"/>
-				<h:inputText value="#{osobaBean.vozidlo.mistSezeni == 0 ? '' : osobaBean.vozidlo.mistSezeni}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.mistSezeni == 0 ? '' : osobaBean.vozidlo.mistSezeni}" required="true" class="req"
 					requiredMessage="Položka 'Míst k sezení' je povinná"
 					validatorMessage="Míst k sezení musí být v rozmezí 0 až 60">
 					<f:validateLongRange minimum="1" maximum="60"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Míst ke stání"/>
-				<h:inputText value="#{osobaBean.vozidlo.mistStani == 0 ? '' : osobaBean.vozidlo.mistStani}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.mistStani == 0 ? '' : osobaBean.vozidlo.mistStani}" required="true" class="req"
 					requiredMessage="Položka 'Míst ke stání' je povinná"
 					validatorMessage="Míst ke stání musí být v rozmezí 0 až 100">
 					<f:validateLongRange minimum="0" maximum="100"/>
@@ -89,17 +89,17 @@
 					<f:validateDoubleRange minimum="0.0"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Maximální rychlost"/>
-				<h:inputText value="#{osobaBean.vozidlo.maxRychlost == 0 ? '' : osobaBean.vozidlo.maxRychlost}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.maxRychlost == 0 ? '' : osobaBean.vozidlo.maxRychlost}" required="true" class="req"
 					requiredMessage="Položka 'Maximální rychlost' je povinná"
 					validatorMessage="Neplatná hodnota maximální rychlosti">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Řazení"/>
-				<h:inputText value="#{osobaBean.vozidlo.razeni}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.razeni}" required="true" class="req"
 					requiredMessage="Položka 'Řazení' je povinná">
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Barva"/>
-				<h:inputText value="#{osobaBean.vozidlo.barva}" required="true"
+				<h:inputText value="#{osobaBean.vozidlo.barva}" required="true" class="req"
 					requiredMessage="Položka 'Barva' je povinná"
 					validatorMessage="Barva může obsahovat nejvýše 255 znaků">
 					<f:validateLength maximum="255"/>
