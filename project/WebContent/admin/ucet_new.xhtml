@@ -13,15 +13,15 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			<h:messages layout="table" class="msg"></h:messages>
+			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="Login"></h:outputLabel>
 				<h:inputText value="#{ucetBean.ucet.login}" required="true"
-					requiredMessage="Login je povinny"
-					validatorMessage="Neplatny login">
+					requiredMessage="Položka 'Login' je povinná"
+					validatorMessage="Neplatný login">
 					<f:validateLength minimum="2" maximum="80" />
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Opravneni"></h:outputLabel>
+				<h:outputLabel rendered="true" value="Oprávnění"></h:outputLabel>
 				<h:selectOneMenu value="#{ucetBean.ucet.opravneni}" >
 				    <f:selectItems value="#{ucetBean.enumOpravneni}" var="opravneni" itemValue="#{opravneni}" itemLabel="#{opravneni.label}" />
 				</h:selectOneMenu>
@@ -29,10 +29,8 @@
 				<h:inputSecret value="#{ucetBean.ucet.password}" required="true">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputSecret>
-				<h:commandButton action="#{ucetBean.actionInsertNew}" value="Vlozit">
-				</h:commandButton>
-				<h:commandButton action="cancel" value="Zrusit" immediate="true">
-				</h:commandButton>
+				<h:commandButton action="#{ucetBean.actionInsertNew}" value="Vložit"></h:commandButton>
+				<h:commandButton action="cancel" value="Zrušit" immediate="true"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
 	</ui:define>
