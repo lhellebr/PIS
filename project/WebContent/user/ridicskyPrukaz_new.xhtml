@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../template.xhtml">
+	<ui:define name="title">Nový řidičský průkaz</ui:define>
+	<ui:define name="css">
+		<h:outputStylesheet name="/style/default.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:messages layout="table" class="msg"></h:messages>
+			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Vydavatel"></h:outputLabel>
+				<h:inputText value="#{osobaBean.ridicskyPrukaz.vydavatel}" required="true"  class="req"/>
+				<h:outputLabel rendered="true" value="Platnost od"></h:outputLabel>
+				<h:inputText value="#{osobaBean.ridicskyPrukaz.platnostOd}" required="true"  class="req">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:inputText>
+				<h:outputLabel rendered="true" value="Platnost do"></h:outputLabel>
+				<h:inputText value="#{osobaBean.ridicskyPrukaz.platnostDo}" required="true"  class="req">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:inputText>
+				<h:commandButton action="#{osobaBean.actionPrukazAdd}" value="Vlozit">
+				</h:commandButton>
+				<h:commandButton action="cancel" value="Zrusit" immediate="true">
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>
