@@ -1,5 +1,6 @@
 package org.fit.pis.back;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -176,9 +177,12 @@ public class OsobaBean
     
     public String actionPrukazNew()
     {
+    	Calendar cal = Calendar.getInstance();
+    	cal.add(Calendar.YEAR, 5);
         ridicskyPrukaz = new RidicskyPrukaz();
         ridicskyPrukaz.setVydavatel(osoba.getJmeno()+" "+osoba.getPrijmeni());
         ridicskyPrukaz.setPlatnostOd(new Date());
+        ridicskyPrukaz.setPlatnostDo(cal.getTime());
         return "newPrukaz";
     }
     
