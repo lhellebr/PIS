@@ -22,15 +22,15 @@
 				<h:outputLabel rendered="true" value="Jmeno"></h:outputLabel>
 				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"
 					requiredMessage="Jmeno je povinne"
-					validatorMessage="Neplatne jmeno">
+					validatorMessage="Neplatne jmeno" class="req">
 					<f:validateLength minimum="2" maximum="80" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Prijmeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true">
+				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true" class="req">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Misto narozeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true">
+				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true" class="req">
 					<f:validateLength minimum="2" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="bydlisteObec"></h:outputLabel>

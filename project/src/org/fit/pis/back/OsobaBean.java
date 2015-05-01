@@ -176,7 +176,7 @@ public class OsobaBean
     public String actionPrukazNew()
     {
         ridicskyPrukaz = new RidicskyPrukaz();
-        ridicskyPrukaz.setVydavatel("Magistrat Mesta Brna");
+        ridicskyPrukaz.setVydavatel(osoba.getJmeno()+" "+osoba.getPrijmeni());
         ridicskyPrukaz.setPlatnostOd(new Date());
         return "newPrukaz";
     }

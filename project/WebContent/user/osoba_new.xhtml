@@ -16,17 +16,17 @@
 			<h:messages layout="table" class="msg"></h:messages>
 			<h:panelGrid columns="2">
 				<h:outputLabel rendered="true" value="Osoba"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"
+				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true"  class="req"
 					requiredMessage="Jmeno je povinne"
 					validatorMessage="Neplatne jmeno">
 					<f:validateLength minimum="2" maximum="80" />
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Prijmeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true">
+				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true"  class="req">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Misto narozeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true">
+				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true"  class="req">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
 				<h:outputLabel rendered="true" value="Bydliste (obec)"></h:outputLabel>

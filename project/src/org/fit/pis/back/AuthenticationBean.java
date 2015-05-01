@@ -117,6 +117,22 @@ public class AuthenticationBean
         return "/login";
     }
     
+    public String actionHome()
+    {
+    	if(!authenticated){
+    		return "/login.xhtml";
+    	}
+    	switch(this.ucet.getOpravneni()){
+    	case ADMINISTRATOR:
+    		return "/admin/disamb.xhtml";
+    	case UREDNIK:
+    		return "/user/osoba_list.xhtml";
+    	case POLICISTA:
+    		return "/police/info.xhtml";
+    	}
+        return "/login.xhtml";
+    }
+    
     public String actionLogin()
     {
     	ucet=ucetMgr.find(login);
