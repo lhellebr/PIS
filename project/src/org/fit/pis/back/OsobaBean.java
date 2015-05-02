@@ -32,7 +32,8 @@ public class OsobaBean
     private RidicskyPrukaz ridicskyPrukaz;
     private RidicskyPrukazSkupina skupina;
     private boolean update;
-    private Map<String,Skupina> skupinaList;
+    private Map<String,String> skupinaList;
+    private String skupinaId;
     
     public OsobaManager getOsobaMgr() {
 		return osobaMgr;
@@ -115,6 +116,14 @@ public class OsobaBean
 
 	public void setSkupina(RidicskyPrukazSkupina skupina) {
 		this.skupina = skupina;
+	}
+
+	public String getSkupinaId() {
+		return skupinaId;
+	}
+
+	public void setSkupinaId(String skupinaId) {
+		this.skupinaId = skupinaId;
 	}
 
 	//====================================================
@@ -227,27 +236,34 @@ public class OsobaBean
     }
     
     public String actionAddSkupina() {
+    	Skupina s = ridicskyPrukazSkupinaMgr.findSkupina(Integer.parseInt(skupinaId));
+    	skupina.setSkupina(s);
     	ridicskyPrukaz.getSkupiny().add(skupina);
     	ridicskyPrukazMgr.save(ridicskyPrukaz);
-    	return "add";
+    	return "saveSkupina";
     }
     
-    public String actionEditSkupina(RidicskyPrukazSkupina skupina) {
-    	this.skupina = skupina;
+    public String actionEditSkupina(RidicskyPrukazSkupina s) {
+    	skupina = s;
     	return "editSkupina";
     }
     
+    public String actionSaveSkupina() {
+    	ridicskyPrukazSkupinaMgr.save(skupina);
+    	return "saveSkupina";
+    }
+    
     public String actionDeleteSkupina(RidicskyPrukazSkupina skupina) {
-    	ridicskyPrukazSkupinaMgr.remove(skupina);
+    	ridicskyPrukaz.getSkupiny().remove(skupina);
     	return "deleteSkupina";
     }
     
-    public Map<String,Skupina> getSkupinaList() {
-    	skupinaList = new LinkedHashMap<String,Skupina>();
+    public Map<String,String> getSkupinaList() {
+    	skupinaList = new LinkedHashMap<String,String>();
     	List<Skupina> skupiny = ridicskyPrukazSkupinaMgr.findAllSkupina();
     	for (ListIterator<Skupina> iter = skupiny.listIterator(); iter.hasNext(); ) {
     		Skupina s = iter.next();
-    		skupinaList.put(s.getOznaceni(),s);
+    		skupinaList.put(s.getOznaceni(),Integer.toString(s.getId()));
     	}
     	return skupinaList;
     }

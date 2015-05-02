@@ -1,5 +1,5 @@
 /**
- * Stateless bean pro praci s daty ridicskeho prukazu
+ * Stateless bean pro praci s daty skupin ridicskeho prukazu
  */
 package org.fit.pis.service;
 
@@ -9,8 +9,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.fit.pis.data.Osoba;
-import org.fit.pis.data.RidicskyPrukaz;
 import org.fit.pis.data.RidicskyPrukazSkupina;
 import org.fit.pis.data.Skupina;
 
@@ -31,9 +29,14 @@ public class RidiciskyPrukazSkupinaManager
         em.remove(em.merge(p));
     }
     
-    public RidicskyPrukazSkupina find(String id)
+    public RidicskyPrukazSkupina find(int id)
     {
         return em.find(RidicskyPrukazSkupina.class, id);
+    }
+    
+    public Skupina findSkupina(int id)
+    {
+        return em.find(Skupina.class, id);
     }
     
     @SuppressWarnings("unchecked")

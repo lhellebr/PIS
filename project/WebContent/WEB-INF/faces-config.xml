@@ -108,17 +108,19 @@
 		<navigation-case>
 			<from-outcome>add</from-outcome>
 			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<display-name>user/skupina_new.xhtml</display-name>
 		<from-view-id>/user/skupina_new.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>add</from-outcome>
+			<from-outcome>saveSkupina</from-outcome>
 			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
@@ -130,7 +132,7 @@
 		<display-name>user/skupina_edit.xhtml</display-name>
 		<from-view-id>/user/skupina_edit.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>add</from-outcome>
+			<from-outcome>saveSkupina</from-outcome>
 			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
@@ -154,6 +156,19 @@
 			<to-view-id>/user/osoba_new.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>delete</from-outcome>
+			<to-view-id>/user/osoba_list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/user/osoba_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>prukazy</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<display-name>user/osoba_new.xhtml</display-name>
@@ -165,26 +180,6 @@
 		<navigation-case>
 			<from-outcome>cancel</from-outcome>
 			<to-view-id>/user/osoba_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>user/osoba_list.xhtml</display-name>
-		<from-view-id>/user/osoba_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>delete</from-outcome>
-			<to-view-id>/user/osoba_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>user/osoba_list.xhtml</display-name>
-		<from-view-id>/user/osoba_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>edit</from-outcome>
-			<to-view-id>/user/osoba_edit.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>prukazy</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>

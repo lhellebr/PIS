@@ -9,7 +9,7 @@
  	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="../template.xhtml">
-	<ui:define name="title">Nový řidičský průkaz</ui:define>
+	<ui:define name="title">Nová skupina řidičského průkazu</ui:define>
 	<ui:define name="css">
 		<h:outputStylesheet name="/style/default.css" />
 	</ui:define>
@@ -42,7 +42,7 @@
                 </rich:calendar>
                 
 				<h:outputLabel rendered="true" value="Skupina"></h:outputLabel>
-                <h:selectOneMenu value="#{osobaBean.skupina.skupina}">
+                <h:selectOneMenu value="#{osobaBean.skupinaId}">
 		   			<f:selectItems value="#{osobaBean.getSkupinaList()}" />
 		   		</h:selectOneMenu>
 				
