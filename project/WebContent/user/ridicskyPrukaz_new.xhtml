@@ -20,6 +20,8 @@
 		<h:form>
 			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
+				<h:outputLabel rendered="true" value="Číslo průkazu"></h:outputLabel>
+				<h:inputText value="#{osobaBean.ridicskyPrukaz.cisloPrukazu}" required="true"  class="req"/>
 				<h:outputLabel rendered="true" value="Vydavatel"></h:outputLabel>
 				<h:inputText value="#{osobaBean.ridicskyPrukaz.vydavatel}" required="true"  class="req"/>
 				<h:outputLabel rendered="true" value="Platnost od"></h:outputLabel>

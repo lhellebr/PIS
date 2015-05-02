@@ -26,6 +26,7 @@ public class RidicskyPrukaz{
 	private Osoba osoba;
 	@OneToMany(orphanRemoval=true, fetch = EAGER)
 	private Collection<RidicskyPrukazSkupina> skupiny;
+	private int cisloPrukazu;
 	
 	public int getId() {
 		return id;
@@ -62,5 +63,11 @@ public class RidicskyPrukaz{
 	}
 	public void setSkupiny(Collection<RidicskyPrukazSkupina> skupiny) {
 		this.skupiny = skupiny;
+	}
+	public int getCisloPrukazu() {
+		return cisloPrukazu;
+	}
+	public void setCisloPrukazu(int cislo_prukazu) {
+		this.cisloPrukazu = cislo_prukazu;
 	}
 }
