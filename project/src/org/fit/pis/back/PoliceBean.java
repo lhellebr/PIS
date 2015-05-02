@@ -222,4 +222,9 @@ public class PoliceBean
 		return "save";
 	}
 	
+	public String actionLicense(Osoba o)
+	{
+		setOsoba(o);
+		return "license";
+	}
 }
