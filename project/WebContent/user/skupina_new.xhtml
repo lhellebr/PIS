@@ -28,11 +28,7 @@
                 </rich:calendar>
 				
 				<h:outputLabel rendered="true" value="Harmonizační kód"></h:outputLabel>
-				<h:inputText value="#{osobaBean.skupina.harmonizacniKod}"
-							 required="true" 
-							 class="req"
-                    		 requiredMessage="Pole 'Harmonizační kód' je povinné"/>
-                    		 
+				<h:inputText value="#{osobaBean.skupina.harmonizacniKod}"/>
 				<h:outputLabel rendered="true" value="Platnost do"></h:outputLabel>
 				<rich:calendar value="#{osobaBean.skupina.platnostDo}" id="calendar2" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"

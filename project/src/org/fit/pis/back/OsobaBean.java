@@ -246,6 +246,7 @@ public class OsobaBean
     	skupina.setSkupina(s);
     	ridicskyPrukaz.getSkupiny().add(skupina);
     	ridicskyPrukazMgr.save(ridicskyPrukaz);
+    	setSkupina(null);
     	return "saveSkupina";
     }
     
@@ -256,6 +257,7 @@ public class OsobaBean
     
     public String actionSaveSkupina() {
     	ridicskyPrukazSkupinaMgr.save(skupina);
+    	setSkupina(null);
     	return "saveSkupina";
     }
     

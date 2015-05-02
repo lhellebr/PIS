@@ -38,7 +38,7 @@
                     requiredMessage="Pole Platnost do je povinné">
                 </rich:calendar>
 				<h:commandButton action="#{osobaBean.actionSaveRidicskyPrukaz(osobaBean.ridicskyPrukaz)}" value="Uložit"></h:commandButton>
-				<h:commandButton action="cancel" value="Zpět" immediate="true"></h:commandButton>
+				<h:commandButton action="cancel" value="Zpět" immediate="true"/>
 			</h:panelGrid>
 		</h:form>
 		
@@ -46,7 +46,7 @@
 		
 		<h:form>
 			<h:commandLink action="#{osobaBean.actionNewSkupina}">
-				<h:outputText value="Rozšířit řidičský průkaz o skupinu"></h:outputText>
+				<h:outputText value="Rozšířit řidičský průkaz o skupinu"/>
 			</h:commandLink>
 			<br/>
 			<h:dataTable value="#{osobaBean.ridicskyPrukaz.skupiny}" var="skupina">
@@ -54,7 +54,7 @@
 					<f:facet name="header">
 	                    <h:outputText value="Skupina"/>
 	                </f:facet>
-					<h:outputText value="#{skupina.skupina.oznaceni}"></h:outputText>
+					<h:outputText value="#{skupina.skupina.oznaceni}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
@@ -73,12 +73,18 @@
 					</h:outputText>
 				</h:column>
 				<h:column>
-					<h:commandLink action="#{osobaBean.actionEditSkupina(skupina)}">
-						<h:outputText value="Upravit"></h:outputText>
+					<f:facet name="header">
+	                    <h:outputText value="Harmonizační kód"/>
+	                </f:facet>
+					<h:outputText value="#{skupina.harmonizacniKod}"/>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{osobaBean.actionNewSkupina(skupina)}">
+						<h:outputText value="Upravit"/>
 					</h:commandLink>
 					&nbsp;
 					<h:commandLink action="#{osobaBean.actionDeleteSkupina(skupina)}">
-						<h:outputText value="Odebrat"></h:outputText>
+						<h:outputText value="Odebrat"/>
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
