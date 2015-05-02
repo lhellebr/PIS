@@ -2,16 +2,19 @@ package org.fit.pis.back;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.persistence.OneToMany;
 
 import org.fit.pis.data.*;
 import org.fit.pis.service.OsobaManager;
 import org.fit.pis.service.RidicskyPrukazManager;
+import org.fit.pis.service.RidiciskyPrukazSkupinaManager;
 
 
 @ManagedBean
@@ -22,12 +25,14 @@ public class OsobaBean
 	private OsobaManager osobaMgr;
 	@EJB
 	private RidicskyPrukazManager ridicskyPrukazMgr;
+	@EJB
+	private RidiciskyPrukazSkupinaManager ridicskyPrukazSkupinaMgr;
     private Osoba osoba;
     private Vozidlo vozidlo;
     private RidicskyPrukaz ridicskyPrukaz;
+    private RidicskyPrukazSkupina skupina;
     private boolean update;
-    
-    
+    private Map<String,Skupina> skupinaList;
     
     public OsobaManager getOsobaMgr() {
 		return osobaMgr;
@@ -104,7 +109,15 @@ public class OsobaBean
         return ridicskyPrukazMgr.findAll();
     }
 
-   //====================================================
+    public RidicskyPrukazSkupina getSkupina() {
+		return skupina;
+	}
+
+	public void setSkupina(RidicskyPrukazSkupina skupina) {
+		this.skupina = skupina;
+	}
+
+	//====================================================
     public String actionList(){
     	return "list";
     }
@@ -180,7 +193,6 @@ public class OsobaBean
     	Calendar cal = Calendar.getInstance();
     	cal.add(Calendar.YEAR, 5);
         ridicskyPrukaz = new RidicskyPrukaz();
-        ridicskyPrukaz.setVydavatel(osoba.getJmeno()+" "+osoba.getPrijmeni());
         ridicskyPrukaz.setPlatnostOd(new Date());
         ridicskyPrukaz.setPlatnostDo(cal.getTime());
         return "newPrukaz";
@@ -202,5 +214,41 @@ public class OsobaBean
     public String actionSaveRidicskyPrukaz(RidicskyPrukaz prukaz) {
     	ridicskyPrukazMgr.save(prukaz);
     	return "prukazy";
+    }
+    
+    public String actionNewSkupina() {
+    	Calendar cal = Calendar.getInstance();
+    	cal.add(Calendar.YEAR, 5);
+    	skupina = new RidicskyPrukazSkupina();
+    	skupina.setDatumUdeleni(new Date());
+    	skupina.setPlatnostDo(cal.getTime());
+    	skupina.setRidicskyPrukaz(ridicskyPrukaz);
+    	return "newSkupina";
+    }
+    
+    public String actionAddSkupina() {
+    	ridicskyPrukaz.getSkupiny().add(skupina);
+    	ridicskyPrukazMgr.save(ridicskyPrukaz);
+    	return "add";
+    }
+    
+    public String actionEditSkupina(RidicskyPrukazSkupina skupina) {
+    	this.skupina = skupina;
+    	return "editSkupina";
+    }
+    
+    public String actionDeleteSkupina(RidicskyPrukazSkupina skupina) {
+    	ridicskyPrukazSkupinaMgr.remove(skupina);
+    	return "deleteSkupina";
+    }
+    
+    public Map<String,Skupina> getSkupinaList() {
+    	skupinaList = new LinkedHashMap<String,Skupina>();
+    	List<Skupina> skupiny = ridicskyPrukazSkupinaMgr.findAllSkupina();
+    	for (ListIterator<Skupina> iter = skupiny.listIterator(); iter.hasNext(); ) {
+    		Skupina s = iter.next();
+    		skupinaList.put(s.getOznaceni(),s);
+    	}
+    	return skupinaList;
     }
 }

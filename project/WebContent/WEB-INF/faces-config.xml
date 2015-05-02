@@ -6,63 +6,11 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
     version="2.0">
     <navigation-rule>
-		<display-name>user/ridicskyPrukaz_list.xhtml</display-name>
-		<from-view-id>/user/ridicskyPrukaz_list.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>newPrukaz</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_new.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>editPrukaz</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-    <navigation-rule>
-		<display-name>user/ridicskyPrukaz_edit.xhtml</display-name>
-		<from-view-id>/user/ridicskyPrukaz_edit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>prukazy</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>user/ridicskyPrukaz_new.xhtml</display-name>
-		<from-view-id>/user/ridicskyPrukaz_new.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>add</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>cancel</from-outcome>
-			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-    <navigation-rule>
 		<display-name>admin/myedit.xhtml</display-name>
 		<from-view-id>/admin/myedit.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>update</from-outcome>
 			<to-view-id>/admin/disamb.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>user/myedit.xhtml</display-name>
-		<from-view-id>/user/myedit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>update</from-outcome>
-			<to-view-id>/user/osoba_list.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>police/myedit.xhtml</display-name>
-		<from-view-id>/police/myedit.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>update</from-outcome>
-			<to-view-id>/police/info.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
     <navigation-rule>
@@ -105,6 +53,97 @@
 		<navigation-case>
 			<from-outcome>insert</from-outcome>
 			<to-view-id>/admin/ucet_list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>admin/admin.xhtml</display-name>
+		<from-view-id>/admin/admin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	
+    <navigation-rule>
+		<display-name>user/ridicskyPrukaz_list.xhtml</display-name>
+		<from-view-id>/user/ridicskyPrukaz_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPrukaz</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_new.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editPrukaz</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+    <navigation-rule>
+		<display-name>user/ridicskyPrukaz_edit.xhtml</display-name>
+		<from-view-id>/user/ridicskyPrukaz_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>prukazy</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>newSkupina</from-outcome>
+			<to-view-id>/user/skupina_new.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>deleteSkupina</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editSkupina</from-outcome>
+			<to-view-id>/user/skupina_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>user/ridicskyPrukaz_new.xhtml</display-name>
+		<from-view-id>/user/ridicskyPrukaz_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>user/skupina_new.xhtml</display-name>
+		<from-view-id>/user/skupina_new.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>user/skupina_edit.xhtml</display-name>
+		<from-view-id>/user/skupina_edit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>add</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>user/myedit.xhtml</display-name>
+		<from-view-id>/user/myedit.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/user/osoba_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -180,36 +219,14 @@
 			<to-view-id>/user/osoba_list.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	
 	<navigation-rule>
-		<display-name>login.xhtml</display-name>
-		<from-view-id>/login.xhtml</from-view-id>
+		<display-name>police/myedit.xhtml</display-name>
+		<from-view-id>/police/myedit.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>admin</from-outcome>
-			<to-view-id>/admin/disamb.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-				<navigation-case>
-			<from-outcome>user</from-outcome>
-			<to-view-id>/user/osoba_list.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-				<navigation-case>
-			<from-outcome>police</from-outcome>
+			<from-outcome>update</from-outcome>
 			<to-view-id>/police/info.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>failed</from-outcome>
-			<to-view-id>/login.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>admin/admin.xhtml</display-name>
-		<from-view-id>/admin/admin.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login</from-outcome>
-			<to-view-id>/login.xhtml</to-view-id>
-			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -270,6 +287,31 @@
 		<navigation-case>
 			<from-outcome>back</from-outcome>
 			<to-view-id>/police/points.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>login.xhtml</display-name>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>admin</from-outcome>
+			<to-view-id>/admin/disamb.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+				<navigation-case>
+			<from-outcome>user</from-outcome>
+			<to-view-id>/user/osoba_list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+				<navigation-case>
+			<from-outcome>police</from-outcome>
+			<to-view-id>/police/info.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>failed</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

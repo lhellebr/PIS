@@ -14,29 +14,39 @@
 		<h:outputStylesheet name="/style/default.css" />
 	</ui:define>
 	<ui:define name="content">
-		<h2>Nový řidičský průkaz</h2>
+		<h2>Nová skupina řidičského průkazu</h2>
 		<h3><h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/></h3>
-		
 		<h:form>
 			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
-				<h:outputLabel rendered="true" value="Vydavatel"></h:outputLabel>
-				<h:inputText value="#{osobaBean.ridicskyPrukaz.vydavatel}" required="true"  class="req"/>
-				<h:outputLabel rendered="true" value="Platnost od"></h:outputLabel>
-				<rich:calendar value="#{osobaBean.ridicskyPrukaz.platnostOd}" id="calendar1" locale="cs/CZ"
+				<h:outputLabel rendered="true" value="Datum udělení"></h:outputLabel>
+				<rich:calendar value="#{osobaBean.skupina.datumUdeleni}" id="calendar1" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"
                     showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
-                    disabled="#{calendarBean.disabled}" required="true"
-                    requiredMessage="Pole Platnost od je povinné">
+                    disabled="#{calendarBean.disabled}" required="true" class="req"
+                    requiredMessage="Pole 'Datum udělení' je povinné">
                 </rich:calendar>
+				
+				<h:outputLabel rendered="true" value="Harmonizační kód"></h:outputLabel>
+				<h:inputText value="#{osobaBean.skupina.harmonizacniKod}"
+							 required="true" 
+							 class="req"
+                    		 requiredMessage="Pole 'Harmonizační kód' je povinné"/>
+                    		 
 				<h:outputLabel rendered="true" value="Platnost do"></h:outputLabel>
-				<rich:calendar value="#{osobaBean.ridicskyPrukaz.platnostDo}" id="calendar2" locale="cs/CZ"
+				<rich:calendar value="#{osobaBean.skupina.platnostDo}" id="calendar2" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"
                     showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
-                    disabled="#{calendarBean.disabled}" required="true"
-                    requiredMessage="Pole Platnost do je povinné">
+                    disabled="#{calendarBean.disabled}" required="true" class="req"
+                    requiredMessage="Pole 'Platnost do' je povinné">
                 </rich:calendar>
-				<h:commandButton action="#{osobaBean.actionPrukazAdd}" value="Vložit"></h:commandButton>
+                
+				<h:outputLabel rendered="true" value="Skupina"></h:outputLabel>
+                <h:selectOneMenu value="#{osobaBean.skupina.skupina}">
+		   			<f:selectItems value="#{osobaBean.getSkupinaList()}" />
+		   		</h:selectOneMenu>
+				
+				<h:commandButton action="#{osobaBean.actionAddSkupina}" value="Uložit"></h:commandButton>
 				<h:commandButton action="cancel" value="Zpět" immediate="true"></h:commandButton>
 			</h:panelGrid>
 		</h:form>

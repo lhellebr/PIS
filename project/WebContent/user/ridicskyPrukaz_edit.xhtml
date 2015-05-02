@@ -9,12 +9,13 @@
  	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="../template.xhtml">
-	<ui:define name="title">Nový řidičský průkaz</ui:define>
+	<ui:define name="title">Úprava řidičského průkazu</ui:define>
 	<ui:define name="css">
 		<h:outputStylesheet name="/style/default.css" />
 	</ui:define>
 	<ui:define name="content">
-		<h2>Nový řidičský průkaz</h2>
+		
+		<h2>Úprava řidičského průkazu</h2>
 		<h3><h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/></h3>
 		
 		<h:form>
@@ -36,9 +37,51 @@
                     disabled="#{calendarBean.disabled}" required="true"
                     requiredMessage="Pole Platnost do je povinné">
                 </rich:calendar>
-				<h:commandButton action="#{osobaBean.actionPrukazAdd}" value="Vložit"></h:commandButton>
+				<h:commandButton action="#{osobaBean.actionSaveRidicskyPrukaz(osobaBean.ridicskyPrukaz)}" value="Uložit"></h:commandButton>
 				<h:commandButton action="cancel" value="Zpět" immediate="true"></h:commandButton>
 			</h:panelGrid>
+		</h:form>
+		
+		<h2>Skupiny</h2>
+		
+		<h:form>
+			<h:commandLink action="#{osobaBean.actionNewSkupina}">
+				<h:outputText value="Rozšířit řidičský průkaz o skupinu"></h:outputText>
+			</h:commandLink>
+			<br/>
+			<h:dataTable value="#{osobaBean.ridicskyPrukaz.skupiny}" var="skupina">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Skupina"/>
+	                </f:facet>
+					<h:outputText value="#{skupina.skupina.oznaceni}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum udělení"/>
+	                </f:facet>
+					<h:outputText value="#{skupina.datumUdeleni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Platnost do"/>
+	                </f:facet>
+					<h:outputText value="#{skupina.platnostDo}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<h:commandLink action="#{osobaBean.actionEditSkupina(skupina)}">
+						<h:outputText value="Upravit"></h:outputText>
+					</h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{osobaBean.actionDeleteSkupina(skupina)}">
+						<h:outputText value="Odebrat"></h:outputText>
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
 		</h:form>
 	</ui:define>
 	
