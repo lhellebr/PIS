@@ -313,4 +313,26 @@
 			<to-view-id>/login.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<display-name>public/index.xhtml</display-name>
+		<from-view-id>/public/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>body</from-outcome>
+			<to-view-id>/public/body.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/public/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>public/body.xhtml</display-name>
+		<from-view-id>/public/body.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/public/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

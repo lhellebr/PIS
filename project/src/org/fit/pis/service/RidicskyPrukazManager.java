@@ -34,6 +34,28 @@ public class RidicskyPrukazManager
         return em.find(RidicskyPrukaz.class, id);
     }
     
+    public RidicskyPrukaz findByNumber(String id)
+    {
+    	try {
+	        List<RidicskyPrukaz> list = em.createQuery("SELECT p FROM RidicskyPrukaz p WHERE p.cisloPrukazu=:cislo")
+	        		.setParameter("cislo",Integer.parseInt(id))
+	        		.getResultList();
+	    	
+	        if (list.size() > 0)
+	        {
+	        	return list.get(0);
+	        }
+	        else
+	        {
+	        	return null;
+	        }
+        
+    	} catch (NumberFormatException | NullPointerException ex) {
+    		return null;
+    	}
+    	
+    }
+    
     @SuppressWarnings("unchecked")
     public List<RidicskyPrukaz> findAll()
     {
@@ -47,4 +69,5 @@ public class RidicskyPrukazManager
                 .setParameter("osoba_ID", osoba.getId())
                 .getResultList();
     }
+
 }

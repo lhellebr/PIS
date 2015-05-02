@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="../template.xhtml">
+ 	<ui:define name="title">Veřejný výpis bodového systému</ui:define>
+ 	<ui:define name="css">
+		<h:outputStylesheet name="/style/police.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h:body>
+		<h2>Veřejný výpis bodového systému</h2>
+
+		<h:form>
+			<h:panelGrid columns="2" styleClass="noborder">
+				<h:inputText value="#{publicBean.find}" render="out" />
+			    <h:commandButton render="out" action="#{publicBean.actionBody}" value="Vyhledat"/>
+			</h:panelGrid>
+		</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

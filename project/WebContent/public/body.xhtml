@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html" 
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+ xmlns:a4j="http://richfaces.org/a4j" 
+ xmlns:rich="http://richfaces.org/rich" 
+ template="../template.xhtml">
+ 	<ui:define name="title">Veřejný výpis bodového systému</ui:define>
+ 	<ui:define name="css">
+		<h:outputStylesheet name="/style/police.css" />
+	</ui:define>
+	<ui:define name="content">
+		<h:body>
+		<h2>Veřejný výpis bodového systému</h2>
+
+		<h:form>
+				<h3>
+					<h:outputText value="#{publicBean.prukaz.osoba.jmeno}" />
+					<h:outputText value=" " />
+					<h:outputText value="#{publicBean.prukaz.osoba.prijmeni}" />
+					<br/>
+					<h:outputText value="Aktuální počet bodů: " />
+					<h:outputText value="#{publicBean.pointSum}" />
+				</h3>
+				
+				<h:dataTable value="#{publicBean.prukaz.osoba.bodovySystem}" var="point">
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Datum udělení"/>
+	                </f:facet>
+					<h:outputText value="#{point.datumUdeleni}">
+						<f:convertDateTime type="date" pattern="d. M. yyyy"/>
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Body"/>
+	                </f:facet>
+					<h:outputText value="#{point.body}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	                    <h:outputText value="Důvod udělení"/>
+	                </f:facet>
+					<h:outputText value="#{point.zaznam}" />
+				</h:column>
+			</h:dataTable>
+			<h:commandButton action="#{publicBean.actionIndex}" value="Zpět"/>
+		</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
