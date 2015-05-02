@@ -12,8 +12,12 @@ body {
 }
 
 #header h1 {
-	font-size: 120%;
 	text-align: center;
+}
+
+#header h1 a {
+	font-size: 120%;
+	text-decoration: none;
 }
 
 #content {
@@ -82,9 +86,9 @@ input.rf-au-inp {
 	border: none !important;
 }
 
-#content .warning {
-	text-align: center !important;
-	font-weight: bold;
+#content p.warning {
+	text-align: center;
+	color: red;
 }
 
 #content table.errors {
