@@ -1,11 +1,13 @@
 package org.fit.pis.back;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -242,7 +244,8 @@ public class OsobaBean
     }
     
     public String actionAddSkupina() {
-    	Skupina s = ridicskyPrukazSkupinaMgr.findSkupina(Integer.parseInt(skupinaId));
+    	Skupina s = new Skupina();
+    	s.setOznaceni(skupinaId);
     	skupina.setSkupina(s);
     	ridicskyPrukaz.getSkupiny().add(skupina);
     	ridicskyPrukazMgr.save(ridicskyPrukaz);
@@ -266,7 +269,7 @@ public class OsobaBean
     	return "deleteSkupina";
     }
     
-    public Map<String,String> getSkupinaList() {
+/*    public Map<String,String> getSkupinaList() {
     	skupinaList = new LinkedHashMap<String,String>();
     	List<Skupina> skupiny = ridicskyPrukazSkupinaMgr.findAllSkupina();
     	for (ListIterator<Skupina> iter = skupiny.listIterator(); iter.hasNext(); ) {
@@ -274,5 +277,10 @@ public class OsobaBean
     		skupinaList.put(s.getOznaceni(),Integer.toString(s.getId()));
     	}
     	return skupinaList;
+    }
+*/
+    public String[] getSkupinaList() {
+        String[] skupinaListString = {"AM", "A1", "A2", "A", "B1", "B", "C1", "C", "D1", "D", "B+E", "C1+E", "C+E", "D1+E", "D+E", "T"};
+        return skupinaListString;
     }
 }
