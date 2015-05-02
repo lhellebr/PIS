@@ -43,6 +43,10 @@
 					<h:commandLink action="#{osobaBean.actionEditRidicskyPrukaz(ridicskyPrukaz)}">
 						<h:outputText value="Upravit"/>
 					</h:commandLink>
+					&nbsp;
+					<h:commandLink action="#{osobaBean.actionDeleteRidicskyPrukaz(ridicskyPrukaz)}">
+						<h:outputText value="Odebrat"/>
+					</h:commandLink>
 				</h:column>
 			</h:dataTable>
 			<h:commandLink action="#{osobaBean.actionPrukazNew}">

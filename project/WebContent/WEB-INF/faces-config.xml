@@ -77,6 +77,10 @@
 			<from-outcome>editPrukaz</from-outcome>
 			<to-view-id>/user/ridicskyPrukaz_edit.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>prukazy</from-outcome>
+			<to-view-id>/user/ridicskyPrukaz_list.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
     <navigation-rule>
 		<display-name>user/ridicskyPrukaz_edit.xhtml</display-name>

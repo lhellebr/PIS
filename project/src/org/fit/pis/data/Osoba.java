@@ -31,7 +31,7 @@ public class Osoba
 	private Collection<Vozidlo> vozidla;
 	@OneToMany(cascade = { ALL }, fetch = EAGER)
 	private Collection<BodovySystem> bodovySystem;
-	@OneToMany(cascade = { ALL }, fetch = EAGER, mappedBy = "osoba", orphanRemoval = true)
+	@OneToMany(fetch = EAGER, mappedBy = "osoba", orphanRemoval = true)
 	private Collection<RidicskyPrukaz> ridicskePrukazy;
 
     public Osoba()

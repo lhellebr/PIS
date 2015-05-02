@@ -225,6 +225,12 @@ public class OsobaBean
     	return "prukazy";
     }
     
+    public String actionDeleteRidicskyPrukaz(RidicskyPrukaz prukaz) {
+    	osoba.getRidicskePrukazy().remove(prukaz);
+    	this.osobaMgr.save(osoba);
+    	return "prukazy";
+    }
+    
     public String actionNewSkupina() {
     	Calendar cal = Calendar.getInstance();
     	cal.add(Calendar.YEAR, 5);

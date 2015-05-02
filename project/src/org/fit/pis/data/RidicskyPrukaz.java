@@ -24,7 +24,7 @@ public class RidicskyPrukaz{
 	private String vydavatel;
 	@ManyToOne(cascade = { ALL }, fetch = EAGER)
 	private Osoba osoba;
-	@OneToMany(cascade = { ALL }, fetch = EAGER)
+	@OneToMany(orphanRemoval=true, fetch = EAGER)
 	private Collection<RidicskyPrukazSkupina> skupiny;
 	
 	public int getId() {
