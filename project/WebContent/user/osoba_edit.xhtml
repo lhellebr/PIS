@@ -16,9 +16,6 @@
 		<h:form>
 			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
-				<h:outputLabel rendered="true" value="ID"></h:outputLabel>
-				<h:outputText value="#{osobaBean.osoba.id}">
-				</h:outputText>
 				<h:outputLabel rendered="true" value="Jméno"></h:outputLabel>
 				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true" class="req"
 					requiredMessage="Položka 'Jméno' je povinná"
@@ -48,12 +45,21 @@
 			<h:dataTable value="#{osobaBean.osoba.vozidla}"
 			             var="vozidlo">
 				<h:column>
+					<f:facet name="header">
+						<h:outputText rendered="true" value="RZ"/>
+					</f:facet>
 					<h:outputText value="#{vozidlo.rz}"></h:outputText>
 				</h:column>
 				<h:column>
+					<f:facet name="header">
+						<h:outputText rendered="true" value="Značka"/>
+					</f:facet>
 					<h:outputText value="#{vozidlo.tovarniZnacka}"></h:outputText>
 				</h:column>
 				<h:column>
+					<f:facet name="header">
+						<h:outputText rendered="true" value="Model"/>
+					</f:facet>
 					<h:outputText value="#{vozidlo.obchOznaceni}"></h:outputText>
 				</h:column>
 				<h:column>
