@@ -25,6 +25,12 @@
 	</h:form>
     </ui:insert>
    	<h:form class="userPanel">
+   	<div style="float: left;">
+   	<h:commandLink action="/public/index.xhtml">
+		<h:outputText value="Veřejnost"></h:outputText>
+	</h:commandLink>
+	</div>
+	<div style="float: right;">
 	<c:if test="#{authenticationBean.authenticated}">
 		<h:commandLink action="#{authenticationBean.actionLogout}">
 			<h:outputText value="Logout"></h:outputText>
@@ -38,6 +44,8 @@
 			<h:outputText value="Home"></h:outputText>
 		</h:commandLink>
 	</c:if>
+	</div>
+	<div style="clear: both;"></div>
 	</h:form>
 </div>
 
@@ -52,7 +60,7 @@
 
 <div id="footer">
   <ui:insert name="footer">
-  	Registr ridicu &copy; 2015 (xhelle04, xkoson00, xpauli00, xrouba03)
+  	Registr řidičů &copy; 2015 (xhelle04, xkoson00, xpauli00, xrouba03)
   </ui:insert>
 </div>
 

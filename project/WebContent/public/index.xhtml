@@ -15,7 +15,8 @@
 		<h2>Veřejný výpis bodového systému</h2>
 
 		<h:form>
-			<h:panelGrid columns="2" styleClass="noborder">
+			<h:panelGrid columns="3" styleClass="noborder">
+				<h:outputText value="Číslo řidičského průkazu" />
 				<h:inputText value="#{publicBean.find}" render="out" />
 			    <h:commandButton render="out" action="#{publicBean.actionBody}" value="Vyhledat"/>
 			</h:panelGrid>
