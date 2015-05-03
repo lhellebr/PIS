@@ -23,10 +23,13 @@
 				<rich:calendar value="#{policeBean.point.datumUdeleni}" id="calendar1" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"
                     showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
-                    disabled="#{calendarBean.disabled}">
+                    disabled="#{calendarBean.disabled}" required="true"
+                    requiredMessage="Pole 'Datum udělení' je povinné">
                 </rich:calendar>
                 <h:outputLabel rendered="true" value="Počet bodů"></h:outputLabel>
-				<h:inputText value="#{policeBean.point.body}">
+				<h:inputText value="#{policeBean.point.body}" required="true"
+					requiredMessage="Pole Počet bodů je povinné"
+					validatorMessage="Počet bodů může být v rozsahu -12 až 12">
 					<f:validateLongRange minimum="-12" maximum="12" />
 				</h:inputText>
                 

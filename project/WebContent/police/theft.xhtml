@@ -21,7 +21,8 @@
 				<rich:calendar value="#{policeBean.kradez.datumNahlaseni}" id="calendar1" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"
                     showApplyButton="false" cellWidth="24px" cellHeight="22px" style="width:200px"
-                    disabled="#{calendarBean.disabled}">
+                    disabled="#{calendarBean.disabled}" required="true"
+                    requiredMessage="Pole 'Datum nahlášení' je povinné">
                 </rich:calendar>
                 <h:outputLabel rendered="true" value="Datum nalezení"></h:outputLabel>
 				<rich:calendar value="#{policeBean.kradez.datumNalezeni}" id="calendar2" locale="cs/CZ"
