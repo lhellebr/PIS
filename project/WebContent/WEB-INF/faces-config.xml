@@ -239,6 +239,10 @@
 			<from-outcome>points</from-outcome>
 			<to-view-id>/police/points.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>license</from-outcome>
+			<to-view-id>/police/license.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<display-name>police/history.xhtml</display-name>
@@ -286,6 +290,14 @@
 		<navigation-case>
 			<from-outcome>back</from-outcome>
 			<to-view-id>/police/points.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>police/license.xhtml</display-name>
+		<from-view-id>/police/license.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>info</from-outcome>
+			<to-view-id>/police/info.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	

@@ -36,7 +36,7 @@
 					</p>
 				</center>
 				
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="2" rendered="#{not empty policeBean.vozidlo}">
 					<h:outputText value="Akce"/>
 					<h:commandLink action="#{policeBean.actionHistory(policeBean.vozidlo)}" rendered="#{not empty policeBean.vozidlo}">
 						<h:outputText value="Krádeže"/>
@@ -87,7 +87,7 @@
 				</h:panelGrid>
 				
 				<h4>Majitel</h4>
-		    	<h:dataTable value="#{policeBean.vozidlo.owner}" var="osoba">
+		    	<h:dataTable value="#{policeBean.vozidlo.owner}" var="osoba" rendered="#{not empty policeBean.vozidlo}">
 					<h:column>
 						<f:facet name="header">
 		                    <h:outputText value="ID"/>
@@ -122,9 +122,16 @@
 						<f:facet name="header">
 							<h:outputText value="Akce"></h:outputText>
 						</f:facet>
-						<h:commandLink action="#{policeBean.actionPoints(osoba)}">
-							<h:outputText value="Bodový systém"></h:outputText>
-						</h:commandLink>
+						<span>
+							<h:commandLink action="#{policeBean.actionLicense(osoba)}">
+								<h:outputText value="Řidičský průkaz"></h:outputText>
+							</h:commandLink>
+							<h:outputText value=" "/>
+							<h:commandLink action="#{policeBean.actionPoints(osoba)}">
+								<h:outputText value="Bodový systém"></h:outputText>
+							</h:commandLink>
+						</span>
+						
 					</h:column>
 				</h:dataTable>
     		</a4j:outputPanel> 
