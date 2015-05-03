@@ -3,14 +3,6 @@
  */
 package org.fit.pis.service;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -56,11 +48,10 @@ public class UcetManager
     {
     	try {
 			em.createNativeQuery("INSERT INTO `ucet` (`LOGIN`, `OPRAVNENI`, `PASSWORD`) VALUES ('admin',	'ADMINISTRATOR',	'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==') ON DUPLICATE KEY UPDATE `LOGIN` = 'admin', `OPRAVNENI` = 'ADMINISTRATOR', `PASSWORD` = 'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==';").executeUpdate();
-			em.createNativeQuery("INSERT INTO `ucet` (`LOGIN`, `OPRAVNENI`, `PASSWORD`) VALUES ('policista',	'POLICISTA',	'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==') ON DUPLICATE KEY UPDATE `LOGIN` = 'admin', `OPRAVNENI` = 'ADMINISTRATOR', `PASSWORD` = 'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==';").executeUpdate();
-			em.createNativeQuery("INSERT INTO `ucet` (`LOGIN`, `OPRAVNENI`, `PASSWORD`) VALUES ('urednik',	'UREDNIK',	'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==') ON DUPLICATE KEY UPDATE `LOGIN` = 'admin', `OPRAVNENI` = 'ADMINISTRATOR', `PASSWORD` = 'OaqgsjzywnkBTEc7ymLeqFr5OcYETtamkpEzL1Z4rig=$Pf3NfHJ95bXJPWL35O2VOltlvH744cbrKqKGdPdeSUe6dNrA8V5xIpw9lfA2rf/aRC1bsiLlbZLoZ14WPAEXlQ==';").executeUpdate();
+			em.createNativeQuery("INSERT INTO `ucet` (`LOGIN`, `OPRAVNENI`, `PASSWORD`) VALUES ('policista',	'POLICISTA',	'haGv4+CU58Y1W8JM9KgaVmfQGJkKDkq00CPMasRqCAw=$Eo0UNUsjkNW5WLxsDFml4C5UHcvwdbtMhK3jxriQhGY8+lPXaM+qNHMNWisnYKdK5YKx3VTpuTNGiCJIeIV1/A==') ON DUPLICATE KEY UPDATE `LOGIN` = 'admin', `OPRAVNENI` = 'POLICISTA', `PASSWORD` = 'haGv4+CU58Y1W8JM9KgaVmfQGJkKDkq00CPMasRqCAw=$Eo0UNUsjkNW5WLxsDFml4C5UHcvwdbtMhK3jxriQhGY8+lPXaM+qNHMNWisnYKdK5YKx3VTpuTNGiCJIeIV1/A==';").executeUpdate();
+			em.createNativeQuery("INSERT INTO `ucet` (`LOGIN`, `OPRAVNENI`, `PASSWORD`) VALUES ('urednik',	'UREDNIK',	'O9ZdRfNw+K22rvxB8ueWPkQpYxv4LRRPy8BWDxSWiLY=$xUUPbibsTCoerSoZxKEcb3FxzytN+Oc8T51unj66iVn/UhO0dr/walOjKqt9cOGD/m0TZ0u+MKboY8uharq95A==') ON DUPLICATE KEY UPDATE `LOGIN` = 'admin', `OPRAVNENI` = 'UREDNIK', `PASSWORD` = 'O9ZdRfNw+K22rvxB8ueWPkQpYxv4LRRPy8BWDxSWiLY=$xUUPbibsTCoerSoZxKEcb3FxzytN+Oc8T51unj66iVn/UhO0dr/walOjKqt9cOGD/m0TZ0u+MKboY8uharq95A==';").executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
-
 }
