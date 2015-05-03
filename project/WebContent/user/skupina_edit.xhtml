@@ -9,12 +9,12 @@
  	xmlns:rich="http://richfaces.org/rich">
 
 <ui:composition template="../template.xhtml">
-	<ui:define name="title">Nová skupina řidičského průkazu</ui:define>
+	<ui:define name="title">Úprava skupiny řidičského průkazu</ui:define>
 	<ui:define name="css">
 		<h:outputStylesheet name="/style/default.css" />
 	</ui:define>
 	<ui:define name="content">
-		<h2>Nová skupina řidičského průkazu</h2>
+		<h2>Úprava skupiny řidičského průkazu</h2>
 		<h3><h:outputText value="#{osobaBean.osoba.jmeno} #{osobaBean.osoba.prijmeni}"/></h3>
 		<h:form>
 			<h:messages layout="table" class="errors"></h:messages>
@@ -29,7 +29,7 @@
 				
 				<h:outputLabel rendered="true" value="Harmonizační kód"></h:outputLabel>
 				<h:inputText value="#{osobaBean.skupina.harmonizacniKod}"/>
-				
+                    		 
 				<h:outputLabel rendered="true" value="Platnost do"></h:outputLabel>
 				<rich:calendar value="#{osobaBean.skupina.platnostDo}" id="calendar2" locale="cs/CZ"
                     popup="true" datePattern="d. M. yyyy"
@@ -39,11 +39,9 @@
                 </rich:calendar>
                 
 				<h:outputLabel rendered="true" value="Skupina"></h:outputLabel>
-                <h:selectOneMenu value="#{osobaBean.skupinaId}">
-		   			<f:selectItems value="#{osobaBean.getSkupinaList()}" />
-		   		</h:selectOneMenu>
+		   		<h:outputText value="#{osobaBean.skupina.skupina.oznaceni}"/>
 				
-				<h:commandButton action="#{osobaBean.actionAddSkupina}" value="Uložit"></h:commandButton>
+				<h:commandButton action="#{osobaBean.actionSaveSkupina}" value="Uložit"></h:commandButton>
 				<h:commandButton action="cancel" value="Zpět" immediate="true"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
