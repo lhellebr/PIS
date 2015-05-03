@@ -15,27 +15,31 @@
 		<h:form>
 			<h:messages layout="table" class="errors"></h:messages>
 			<h:panelGrid columns="2">
-				<h:outputLabel rendered="true" value="Jmeno"></h:outputLabel>
+				<h:outputLabel rendered="true" value="Jméno"></h:outputLabel>
 				<h:inputText value="#{osobaBean.osoba.jmeno}" required="true" class="req"
-					requiredMessage="Jmeno je povinne"
-					validatorMessage="Neplatne jmeno">
+					requiredMessage="Položka 'Jméno' je povinná"
+					validatorMessage="Jméno musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" maximum="80" />
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Prijmeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true"  class="req">
+				<h:outputLabel rendered="true" value="Příjmení"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.prijmeni}" required="true"  class="req"
+					requiredMessage="Položka 'Příjmení' je povinná"
+					validatorMessage="Příjmení musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Misto narozeni"></h:outputLabel>
-				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true"  class="req">
+				<h:outputLabel rendered="true" value="Místo narození"></h:outputLabel>
+				<h:inputText value="#{osobaBean.osoba.mistoNarozeni}" required="true"  class="req"
+					requiredMessage="Položka 'Příjmení' je povinná"
+					validatorMessage="Příjmení musí mít alespoň 2 znaky">
 					<f:validateLength minimum="2" maximum="80"/>
 				</h:inputText>
-				<h:outputLabel rendered="true" value="Bydliste (obec)"></h:outputLabel>
+				<h:outputLabel rendered="true" value="Bydliště (obec)"></h:outputLabel>
 				<h:inputText value="#{osobaBean.osoba.bydlisteObec}">
 					<f:validateLength minimum="0" maximum="80"/>
 				</h:inputText>
-				<h:commandButton action="#{osobaBean.actionInsertNew}" value="Vlozit">
+				<h:commandButton action="#{osobaBean.actionInsertNew}" value="Vložit">
 				</h:commandButton>
-				<h:commandButton action="cancel" value="Zrusit" immediate="true">
+				<h:commandButton action="cancel" value="Zpět" immediate="true">
 				</h:commandButton>
 			</h:panelGrid>
 		</h:form>

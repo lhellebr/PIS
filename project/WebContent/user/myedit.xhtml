@@ -20,8 +20,9 @@
 				<h:outputText value="#{ucetBean.ucet.login}">
 				</h:outputText>
 				<h:outputLabel rendered="true" value="Heslo"></h:outputLabel>
-				<h:inputSecret value="#{ucetBean.ucet.password}" required="true"
-					requiredMessage="Zadejte heslo">
+				<h:inputSecret value="#{ucetBean.ucet.password}" required="true" class="req"
+					requiredMessage="Zadejte heslo"
+					validatorMessage="Heslo musí mít alespoň 1 znak">
 					<f:validateLength minimum="1" maximum="80" />
 				</h:inputSecret>
 			</h:panelGrid>
