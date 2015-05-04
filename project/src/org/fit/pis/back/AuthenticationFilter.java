@@ -18,7 +18,8 @@ public final class AuthenticationFilter implements Filter
         if(auth!=null && auth.isAuthorized(path)){
     		chain.doFilter(request, response);
         }else{
-        	((HttpServletResponse)response).sendRedirect("/project/faces/login.xhtml");
+        	HttpServletRequest req = (HttpServletRequest) request;
+        	((HttpServletResponse)response).sendRedirect(req.getContextPath()+"/faces/login.xhtml");
         }
     }
 
